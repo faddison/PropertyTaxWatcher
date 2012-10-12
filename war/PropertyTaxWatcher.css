@@ -32,3 +32,26 @@ h1 {
 #closeButton {
   margin: 15px 6px 6px;
 }
+
+.sample th {
+	border-width: 1px;
+	padding: 1px;
+	border-style: solid;
+	border-color: black;
+	background-color: white;
+	-moz-border-radius: ;
+}
+.sample td {
+	border-width: 1px;
+	padding: 1px;
+	border-style: solid;
+	border-color: black;
+	background-color: white;
+	-moz-border-radius: ;
+}
+
+.columnOverflow {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}

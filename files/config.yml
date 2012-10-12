@@ -1,0 +1,20 @@
+python_preamble:
+- import: base64
+- import: re
+- import: google.appengine.ext.bulkload.transform
+- import: google.appengine.ext.bulkload.bulkloader_wizard
+- import: google.appengine.api.datastore
+- import: google.appengine.api.users
+
+transformers:
+
+- kind: Employee
+  connector: csv
+
+  property_map:
+
+    - property: name
+      external_name: name
+
+    - property: title
+      external_name: title

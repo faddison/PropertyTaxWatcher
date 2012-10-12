@@ -15,6 +15,16 @@
   <welcome-file-list>
     <welcome-file>PropertyTaxWatcher.html</welcome-file>
   </welcome-file-list>
+  
+  <servlet>
+    <servlet-name>PropertyTaxService</servlet-name>
+    <servlet-class>ca.ubc.cs310.golddiggers.propertytaxwatcher.server.PropertyTaxServiceImpl</servlet-class>
+  </servlet>
+  
+    <servlet-mapping>
+    <servlet-name>PropertyTaxService</servlet-name>
+    <url-pattern>/propertytaxwatcher/propertytax</url-pattern>
+  </servlet-mapping>
 
   <servlet>
     <servlet-name>SystemServiceServlet</servlet-name>
