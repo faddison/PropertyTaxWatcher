@@ -5,3 +5,4 @@
 *.class
 .classpath
 .gwt-log
+test-classes
