@@ -2,7 +2,7 @@ package ca.ubc.cs310.golddiggers.propertytaxwatcher.util.logging;
 
 import org.apache.log4j.Level;
 
-import cs.ubc.cs310.golddiggers.propertytaxwatcher.util.ConfigUtility;
+import ca.ubc.cs310.golddiggers.propertytaxwatcher.util.ConfigUtility;
 
 /**
  * LoggerFactory class. This class creates a new Logger object for use within

@@ -1,4 +1,4 @@
-package cs.ubc.cs310.golddiggers.propertytaxwatcher.util;
+package ca.ubc.cs310.golddiggers.propertytaxwatcher.util;
 
 import java.io.File;
 import java.io.IOException;

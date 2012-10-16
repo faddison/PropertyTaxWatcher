@@ -217,7 +217,7 @@ public final class Logger {
 	 *            The format arguments.
 	 */
 	public void debug(Throwable e, String format, Object... args) {
-		if (this.isTraceEnabled()) {
+		if (this.isDebugEnabled()) {
 			String message = args.length == 0 ? format : MessageFormatter
 					.format(format, args).getMessage();
 			logger.log(FQCN, Level.DEBUG, message, e);
@@ -279,7 +279,7 @@ public final class Logger {
 	 *            The format arguments.
 	 */
 	public void info(Throwable e, String format, Object... args) {
-		if (this.isTraceEnabled()) {
+		if (this.isInfoEnabled()) {
 			String message = args.length == 0 ? format : MessageFormatter
 					.format(format, args).getMessage();
 			logger.log(FQCN, Level.INFO, message, e);
@@ -341,7 +341,7 @@ public final class Logger {
 	 *            The format arguments.
 	 */
 	public void warn(Throwable e, String format, Object... args) {
-		if (this.isTraceEnabled()) {
+		if (this.isWarnEnabled()) {
 			String message = args.length == 0 ? format : MessageFormatter
 					.format(format, args).getMessage();
 			logger.log(FQCN, Level.WARN, message, e);
@@ -403,7 +403,7 @@ public final class Logger {
 	 *            The format arguments.
 	 */
 	public void error(Throwable e, String format, Object... args) {
-		if (this.isTraceEnabled()) {
+		if (this.isErrorEnabled()) {
 			String message = args.length == 0 ? format : MessageFormatter
 					.format(format, args).getMessage();
 			logger.log(FQCN, Level.ERROR, message, e);
