@@ -5,7 +5,7 @@ import java.io.IOException;
 
 import org.ini4j.Ini;
 
-import ca.ubc.cs310.golddiggers.propertytaxwatcher.client.exception.ProperyTaxWatcherException;
+import ca.ubc.cs310.golddiggers.propertytaxwatcher.exception.ProperyTaxWatcherException;
 
 /**
  * ConfigUtiltiy class. This is implemented using the Singleton pattern to allow
@@ -18,15 +18,15 @@ import ca.ubc.cs310.golddiggers.propertytaxwatcher.client.exception.ProperyTaxWa
  */
 public class ConfigUtility {
 
-	// TODO: Create a configuration file.
-	private static final String configurationFile = "";
+	// The default path to the configuration file.
+	private static final String CONFIG_FILE = "resources/default.cfg";
 
 	private static Ini config;
 
 	// Static initialization of the configuration file.
 	static {
 		config = new Ini();
-		loadConfigurationFile(configurationFile);
+		loadConfigurationFile(CONFIG_FILE);
 	}
 
 	/**
@@ -36,7 +36,7 @@ public class ConfigUtility {
 	 *            The name of the file.
 	 */
 	public static void loadConfigurationFile(String fileName) {
-		File file = new File(configurationFile);
+		File file = new File(CONFIG_FILE);
 		try {
 			config.load(file);
 		} catch (IOException e) {

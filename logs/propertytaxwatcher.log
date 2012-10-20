@@ -1,0 +1,14 @@
+ 2012-10-19 21:47:55 | DEBUG | main | ca.ubc.golddiggers.propertytax.util.logging.LoggerFactory.main(LoggerFactory.java:105)               | Test
+ 2012-10-19 21:47:55 | DEBUG | main | ca.ubc.golddiggers.propertytax.util.logging.LoggerFactory.main(LoggerFactory.java:106)               | Test hi 2 3
+ 2012-10-19 21:47:55 | TRACE | main | ca.ubc.golddiggers.propertytax.util.logging.LoggerFactory.main(LoggerFactory.java:107)               | trace test
+ 2012-10-19 21:47:55 | INFO  | main | ca.ubc.golddiggers.propertytax.util.logging.LoggerFactory.main(LoggerFactory.java:108)               | info $#%$%$# 5 hi 6
+ 2012-10-19 21:47:55 | WARN  | main | ca.ubc.golddiggers.propertytax.util.logging.LoggerFactory.main(LoggerFactory.java:109)               | This is a warning
+ 2012-10-19 21:47:55 | ERROR | main | ca.ubc.golddiggers.propertytax.util.logging.LoggerFactory.main(LoggerFactory.java:110)               | boo
+ 2012-10-19 21:47:55 | ERROR | main | ca.ubc.golddiggers.propertytax.util.logging.LoggerFactory.main(LoggerFactory.java:112)               | boo
+ 2012-10-19 21:54:41 | DEBUG | main | ca.ubc.golddiggers.propertytax.util.logging.LoggerFactory.main(LoggerFactory.java:125)               | Test
+ 2012-10-19 21:54:41 | DEBUG | main | ca.ubc.golddiggers.propertytax.util.logging.LoggerFactory.main(LoggerFactory.java:126)               | Test hi 2 3
+ 2012-10-19 21:54:41 | TRACE | main | ca.ubc.golddiggers.propertytax.util.logging.LoggerFactory.main(LoggerFactory.java:127)               | trace test
+ 2012-10-19 21:54:41 | INFO  | main | ca.ubc.golddiggers.propertytax.util.logging.LoggerFactory.main(LoggerFactory.java:128)               | info $#%$%$# 5 hi 6
+ 2012-10-19 21:54:41 | WARN  | main | ca.ubc.golddiggers.propertytax.util.logging.LoggerFactory.main(LoggerFactory.java:129)               | This is a warning
+ 2012-10-19 21:54:41 | ERROR | main | ca.ubc.golddiggers.propertytax.util.logging.LoggerFactory.main(LoggerFactory.java:130)               | boo
+ 2012-10-19 21:54:41 | ERROR | main | ca.ubc.golddiggers.propertytax.util.logging.LoggerFactory.main(LoggerFactory.java:132)               | boo
