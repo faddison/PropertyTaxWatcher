@@ -5,7 +5,7 @@ import java.io.IOException;
 
 import org.ini4j.Ini;
 
-import ca.ubc.cs310.golddiggers.propertytaxwatcher.exception.ProperyTaxWatcherException;
+import ca.ubc.cs310.golddiggers.propertytaxwatcher.client.exception.ProperyTaxWatcherException;
 
 /**
  * ConfigUtiltiy class. This is implemented using the Singleton pattern to allow
