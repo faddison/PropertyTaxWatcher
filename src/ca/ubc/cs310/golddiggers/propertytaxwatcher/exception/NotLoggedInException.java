@@ -1,4 +1,4 @@
-package ca.ubc.cs310.golddiggers.propertytaxwatcher.client.exception;
+package ca.ubc.cs310.golddiggers.propertytaxwatcher.exception;
 
 import java.io.Serializable;
 

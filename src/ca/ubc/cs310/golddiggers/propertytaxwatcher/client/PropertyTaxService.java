@@ -2,7 +2,7 @@ package ca.ubc.cs310.golddiggers.propertytaxwatcher.client;
 
 import java.util.ArrayList;
 
-import ca.ubc.cs310.golddiggers.propertytaxwatcher.client.exception.NotLoggedInException;
+import ca.ubc.cs310.golddiggers.propertytaxwatcher.exception.NotLoggedInException;
 import ca.ubc.cs310.golddiggers.propertytaxwatcher.server.PropertyTax;
 
 import com.google.gwt.user.client.rpc.RemoteService;

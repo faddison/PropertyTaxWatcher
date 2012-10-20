@@ -33,15 +33,26 @@ public final class Logger {
 	// The trace level was introduced in log4j 1.2.12.
 	final boolean traceCapable;
 
-	// WARN: Log4jLoggerAdapter constructor should have only package access so
-	// that
-	// only Log4jLoggerFactory be able to create one.
+	// Logger constructor should have only package access so
+	// that only Log4jLoggerFactory be able to create one.
+	/**
+	 * Logger constructor should have only package access so that only
+	 * ca.ubc.golddiggers.propertytax.util.logging.LoggerFactory is able to
+	 * create one.
+	 * 
+	 * @param logger
+	 *            The underlying log4j.Logger object.
+	 */
 	Logger(org.apache.log4j.Logger logger) {
 		this.logger = logger;
-		// this.name = logger.getName();
 		this.traceCapable = isTraceCapable();
 	}
 
+	/**
+	 * Checks if the Logger is trace capable.
+	 * 
+	 * @return True if it is trace capable; else fase.
+	 */
 	private boolean isTraceCapable() {
 		try {
 			logger.isTraceEnabled();
@@ -155,10 +166,7 @@ public final class Logger {
 	 */
 	public void trace(Throwable e, String format, Object... args) {
 		if (this.isTraceEnabled()) {
-			String message = args.length == 0 ? format : MessageFormatter
-					.format(format, args).getMessage();
-			logger.log(FQCN, traceCapable ? Level.TRACE : Level.DEBUG, message,
-					e);
+			log(e, traceCapable ? Level.TRACE : Level.DEBUG, format, args);
 		}
 	}
 
@@ -218,9 +226,7 @@ public final class Logger {
 	 */
 	public void debug(Throwable e, String format, Object... args) {
 		if (this.isDebugEnabled()) {
-			String message = args.length == 0 ? format : MessageFormatter
-					.format(format, args).getMessage();
-			logger.log(FQCN, Level.DEBUG, message, e);
+			log(e, Level.DEBUG, format, args);
 		}
 	}
 
@@ -280,9 +286,7 @@ public final class Logger {
 	 */
 	public void info(Throwable e, String format, Object... args) {
 		if (this.isInfoEnabled()) {
-			String message = args.length == 0 ? format : MessageFormatter
-					.format(format, args).getMessage();
-			logger.log(FQCN, Level.INFO, message, e);
+			log(e, Level.INFO, format, args);
 		}
 	}
 
@@ -342,9 +346,7 @@ public final class Logger {
 	 */
 	public void warn(Throwable e, String format, Object... args) {
 		if (this.isWarnEnabled()) {
-			String message = args.length == 0 ? format : MessageFormatter
-					.format(format, args).getMessage();
-			logger.log(FQCN, Level.WARN, message, e);
+			log(e, Level.WARN, format, args);
 		}
 	}
 
@@ -404,10 +406,25 @@ public final class Logger {
 	 */
 	public void error(Throwable e, String format, Object... args) {
 		if (this.isErrorEnabled()) {
-			String message = args.length == 0 ? format : MessageFormatter
-					.format(format, args).getMessage();
-			logger.log(FQCN, Level.ERROR, message, e);
+			log(e, Level.ERROR, format, args);
 		}
+	}
+
+	/**
+	 * Logs a message.
+	 * 
+	 * @param e
+	 *            The throwable.
+	 * @param level
+	 *            The level of the logger message.
+	 * @param format
+	 *            The message format.
+	 * @param args
+	 *            The format arguments.
+	 */
+	private void log(Throwable e, Level level, String format, Object... args) {
+		logger.log(FQCN, level, MessageFormatter.arrayFormat(format, args)
+				.getMessage(), e);
 	}
 
 }
