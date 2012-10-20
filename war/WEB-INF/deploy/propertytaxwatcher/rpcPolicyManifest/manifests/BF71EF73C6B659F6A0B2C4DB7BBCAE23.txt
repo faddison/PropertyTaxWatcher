@@ -1,0 +1,2 @@
+serviceClass: ca.ubc.cs310.golddiggers.propertytaxwatcher.client.LoginService
+path: C316DDC52E035FF323527DDB07813187.gwt.rpc

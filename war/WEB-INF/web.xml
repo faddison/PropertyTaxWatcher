@@ -5,6 +5,16 @@
   <welcome-file-list>
     <welcome-file>PropertyTaxWatcher.html</welcome-file>
   </welcome-file-list>
+
+  <servlet>
+    <servlet-name>loginService</servlet-name>
+    <servlet-class>ca.ubc.cs310.golddiggers.propertytaxwatcher.server.LoginServiceImpl</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>loginService</servlet-name>
+    <url-pattern>/propertytaxwatcher/login</url-pattern>
+  </servlet-mapping>
   
   <servlet>
     <servlet-name>PropertyTaxService</servlet-name>

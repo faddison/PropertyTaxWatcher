@@ -8,9 +8,12 @@ import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
+import com.google.gwt.user.client.ui.Anchor;
 import com.google.gwt.user.client.ui.FlexTable;
 import com.google.gwt.user.client.ui.Grid;
+import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.RootPanel;
+import com.google.gwt.user.client.ui.VerticalPanel;
 
 /**
  * Entry point classes define <code>onModuleLoad()</code>.
@@ -23,6 +26,9 @@ public class PropertyTaxWatcher implements EntryPoint {
 	private static final String SERVER_ERROR = "An error occurred while "
 			+ "attempting to contact the server. Please check your network "
 			+ "connection and try again.";
+
+	private LoginInfo loginInfo;
+	private Anchor signInLink = new Anchor("Sign In");
 
 	/**
 	 * Create a remote service proxy to talk to the server-side Greeting
@@ -41,6 +47,47 @@ public class PropertyTaxWatcher implements EntryPoint {
 	 * This is the entry point method.
 	 */
 	public void onModuleLoad() {
+		// Load the login options.
+		// Check login status using login service.
+		LoginServiceAsync loginService = GWT.create(LoginService.class);
+		loginService.login(GWT.getHostPageBaseURL(),
+				new AsyncCallback<LoginInfo>() {
+					public void onFailure(Throwable error) {
+
+					}
+
+					public void onSuccess(LoginInfo result) {
+						loginInfo = result;
+						if (loginInfo.isLoggedIn()) {
+							loadPropertyTaxWatcher();
+						} else {
+							loadLogin();
+						}
+					}
+				});
+	}
+
+	/**
+	 * Loads the login.
+	 */
+	private void loadLogin() {
+		// Assemble login panel.
+		VerticalPanel loginPanel = new VerticalPanel();
+		Label loginLabel = new Label("Please sign in to your Google Account "
+				+ "to access the PropertyTaxWatcher application.");
+		signInLink.setHref(loginInfo.getLoginUrl());
+		loginPanel.add(loginLabel);
+		loginPanel.add(signInLink);
+		RootPanel.get("propertyTaxList").add(loginPanel);
+	}
+
+	private void loadPropertyTaxWatcher() {
+		// Set up sign out hyperlink.
+		Anchor signOutLink = new Anchor("Sign Out");
+		signOutLink.setHref(loginInfo.getLogoutUrl());
+		RootPanel.get("propertyTaxList").add(signOutLink);
+
+		// Load the test property taxes.
 		loadTestPropertyTaxes();
 		propertyTaxesGrid = new Grid(propertyTaxes.size() + 1, 27);
 		displayPropertyTaxes();
