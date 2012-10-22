@@ -1,6 +1,6 @@
 package ca.ubc.cs310.golddiggers.propertytaxwatcher.client;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import ca.ubc.cs310.golddiggers.propertytaxwatcher.server.PropertyTax;
 
@@ -12,5 +12,5 @@ public interface PropertyTaxServiceAsync {
 
 	public void removePropertyTax(String pid, AsyncCallback<Void> async);
 
-	public void getPropertyTaxes(AsyncCallback<ArrayList<PropertyTax>> async);
+	public void getPropertyTaxes(AsyncCallback<List<PropertyTax>> asyncCallback);
 }
