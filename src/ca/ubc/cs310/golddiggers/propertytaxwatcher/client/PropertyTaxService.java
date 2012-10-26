@@ -1,6 +1,6 @@
 package ca.ubc.cs310.golddiggers.propertytaxwatcher.client;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import ca.ubc.cs310.golddiggers.propertytaxwatcher.client.exception.NotLoggedInException;
 import ca.ubc.cs310.golddiggers.propertytaxwatcher.server.PropertyTax;
@@ -15,6 +15,6 @@ public interface PropertyTaxService extends RemoteService {
 
 	public void removePropertyTax(String pid) throws NotLoggedInException;
 
-	public ArrayList<PropertyTax> getPropertyTaxes()
+	public List<PropertyTax> getPropertyTaxes()
 			throws NotLoggedInException;
 }
