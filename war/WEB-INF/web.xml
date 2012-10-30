@@ -23,7 +23,7 @@
   
     <servlet-mapping>
     <servlet-name>PropertyTaxService</servlet-name>
-    <url-pattern>/propertytaxwatcher/propertytax</url-pattern>
+    <url-pattern>/propertytaxwatcher/PropertyTax</url-pattern>
   </servlet-mapping>
 
   <servlet>
