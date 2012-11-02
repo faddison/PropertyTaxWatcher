@@ -1,4 +1,2 @@
 # Module propertytaxwatcher
 # RPC service class, partial path of RPC policy file
-ca.ubc.cs310.golddiggers.propertytaxwatcher.client.LoginService, C316DDC52E035FF323527DDB07813187.gwt.rpc
-ca.ubc.cs310.golddiggers.propertytaxwatcher.client.PropertyTaxService, 1E0F75A2C5C3B8530056F5B78FF4B721.gwt.rpc

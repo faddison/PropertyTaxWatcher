@@ -1,4 +1,4 @@
-package ca.ubc.cs310.golddiggers.propertytaxwatcher.exception;
+package ca.ubc.cs310.golddiggers.propertytaxwatcher.client.exception;
 
 public class ProperyTaxWatcherException extends RuntimeException {
 
