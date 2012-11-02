@@ -70,7 +70,7 @@ public class LoggerFactory {
 	private static ConsoleAppender createConsoleAppender(Level level) {
 		// Create the layout of the log messages.
 		PatternLayout layout = new PatternLayout(
-				"%20d{yyyy-MM-dd HH:mm:ss} | %-5p | %-4M | %-40.40c{3} | %m%n");
+				"%20d{yyyy-MM-dd HH:mm:ss} | %-5p | %-40.40c{3} | %m%n");
 
 		// Create the ConsoleAppender with the layout.
 		ConsoleAppender appender = new ConsoleAppender(layout);
