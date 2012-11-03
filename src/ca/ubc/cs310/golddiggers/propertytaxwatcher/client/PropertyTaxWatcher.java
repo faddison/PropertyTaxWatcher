@@ -13,7 +13,6 @@ import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Anchor;
 import com.google.gwt.user.client.ui.Button;
-import com.google.gwt.user.client.ui.FlexTable;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.Grid;
 import com.google.gwt.user.client.ui.HorizontalPanel;
@@ -46,24 +45,11 @@ import com.google.gwt.visualization.client.visualizations.corechart.PieChart;
  */
 public class PropertyTaxWatcher implements EntryPoint
 {
-	/**
-	 * The message displayed to the user when the server cannot be reached or
-	 * returns an error.
-	 */
-	private static final String SERVER_ERROR = "An error occurred while "
-			+ "attempting to contact the server. Please check your network "
-			+ "connection and try again.";
-
+	// Login fields.
 	private LoginInfo loginInfo;
 	private Anchor signInLink = new Anchor("Sign In");
 
-	/**
-	 * Create a remote service proxy to talk to the server-side Greeting
-	 * service.
-	 */
-	// private final GreetingServiceAsync greetingService = GWT
-	// .create(GreetingService.class);
-
+	// Search fields.
 	private VerticalPanel searchPanel = new VerticalPanel();
 	private HorizontalPanel currentValPanel = new HorizontalPanel();
 	private HorizontalPanel postalCodePanel = new HorizontalPanel();
@@ -78,15 +64,15 @@ public class PropertyTaxWatcher implements EntryPoint
 	private boolean hasSearch = false;
 	private final TabPanel resultTabPanel = new TabPanel();
 
-	private FlexTable propertyTaxesFlexTable = new FlexTable();
+	// Data display fields.
 	private List<PropertyTax> propertyTaxes = new ArrayList<PropertyTax>();
 	private final PropertyTaxServiceAsync propertyTaxService = GWT
 			.create(PropertyTaxService.class);
+	private final TweeterServiceAsync tweeterService = GWT
+			.create(TweeterService.class);
 	private final TabPanel tabPanel = new TabPanel();
 	private VerticalPanel mainPanel = new VerticalPanel();
 	private boolean useLogin = true;
-
-	// private DataTable dataTable;
 
 	/**
 	 * This is the entry point method.
@@ -219,6 +205,7 @@ public class PropertyTaxWatcher implements EntryPoint
 		return map.asWidget();
 	}
 
+	// TODO: Fraser implement me?
 	private Widget createIntensityMap(DataView dataView)
 	{
 		IntensityMap map = new IntensityMap();
@@ -685,26 +672,6 @@ public class PropertyTaxWatcher implements EntryPoint
 				2266000, 7302000, 1912, 1984));
 	}
 
-	private void loadPropertyTaxes()
-	{
-		propertyTaxService
-				.getPropertyTaxes(new AsyncCallback<List<PropertyTax>>()
-				{
-					public void onFailure(Throwable error)
-					{
-						handleError(error);
-					}
-
-					public void onSuccess(List<PropertyTax> propertyTaxList)
-					{
-						System.out.println("Serialized property taxes loaded.");
-						setPropertyTaxes(propertyTaxList);
-						runVisualizations();
-
-					}
-				});
-	}
-
 	private void setPropertyTaxes(List<PropertyTax> propertyTaxList)
 	{
 		this.propertyTaxes = propertyTaxList;
@@ -875,6 +842,26 @@ public class PropertyTaxWatcher implements EntryPoint
 				}
 				hasSearch = true;
 				displayResult(dataTable);
+
+				// Tweet the search!
+				String message = loginInfo.getUser()
+						+ " searched for property tax values from " + min + "-"
+						+ max + "!";
+				tweeterService.updateStatus(message, new AsyncCallback<Void>()
+				{
+					@Override
+					public void onFailure(Throwable caught)
+					{
+						System.out.println("Failed to tweet!");
+					}
+
+					@Override
+					public void onSuccess(Void result)
+					{
+						System.out.println("Status update successful!");
+					}
+
+				});
 			}
 		});
 
@@ -895,6 +882,26 @@ public class PropertyTaxWatcher implements EntryPoint
 				setPostalCodeIndices(dataTable, postal);
 				hasSearch = true;
 				displayResult(dataTable);
+
+				// Tweet the search!
+				String message = loginInfo.getUser()
+						+ " searched for property tax values with postal code: "
+						+ postal + "";
+				tweeterService.updateStatus(message, new AsyncCallback<Void>()
+				{
+					@Override
+					public void onFailure(Throwable caught)
+					{
+						System.out.println("Failed to tweet!");
+					}
+
+					@Override
+					public void onSuccess(Void result)
+					{
+						System.out.println("Status update successful!");
+					}
+
+				});
 			}
 		});
 	}

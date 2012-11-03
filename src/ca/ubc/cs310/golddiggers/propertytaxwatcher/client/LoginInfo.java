@@ -8,7 +8,8 @@ import java.io.Serializable;
  * 
  * @author Hubert Ngu
  */
-public class LoginInfo implements Serializable {
+public class LoginInfo implements Serializable
+{
 
 	// Auto generated Serial Version UID.
 	private static final long serialVersionUID = 2094106848237949737L;
@@ -24,7 +25,8 @@ public class LoginInfo implements Serializable {
 	 * 
 	 * @return True if the user is logged in; else false.
 	 */
-	public boolean isLoggedIn() {
+	public boolean isLoggedIn()
+	{
 		return this.loggedIn;
 	}
 
@@ -34,7 +36,8 @@ public class LoginInfo implements Serializable {
 	 * @param loggedIn
 	 *            The login status of the user.
 	 */
-	public void setLoggedIn(boolean loggedIn) {
+	public void setLoggedIn(boolean loggedIn)
+	{
 		this.loggedIn = loggedIn;
 	}
 
@@ -43,7 +46,8 @@ public class LoginInfo implements Serializable {
 	 * 
 	 * @return The login URL.
 	 */
-	public String getLoginUrl() {
+	public String getLoginUrl()
+	{
 		return this.loginUrl;
 	}
 
@@ -53,7 +57,8 @@ public class LoginInfo implements Serializable {
 	 * @param loginUrl
 	 *            The login URL to set.
 	 */
-	public void setLoginUrl(String loginUrl) {
+	public void setLoginUrl(String loginUrl)
+	{
 		this.loginUrl = loginUrl;
 	}
 
@@ -62,7 +67,8 @@ public class LoginInfo implements Serializable {
 	 * 
 	 * @return The logout URL.
 	 */
-	public String getLogoutUrl() {
+	public String getLogoutUrl()
+	{
 		return this.logoutUrl;
 	}
 
@@ -72,7 +78,8 @@ public class LoginInfo implements Serializable {
 	 * @param logoutUrl
 	 *            The logout URL to set.
 	 */
-	public void setLogoutUrl(String logoutUrl) {
+	public void setLogoutUrl(String logoutUrl)
+	{
 		this.logoutUrl = logoutUrl;
 	}
 
@@ -81,7 +88,8 @@ public class LoginInfo implements Serializable {
 	 * 
 	 * @return The email address.
 	 */
-	public String getEmailAddress() {
+	public String getEmailAddress()
+	{
 		return this.emailAddress;
 	}
 
@@ -91,7 +99,8 @@ public class LoginInfo implements Serializable {
 	 * @param emailAddress
 	 *            The email address of the user.
 	 */
-	public void setEmailAddress(String emailAddress) {
+	public void setEmailAddress(String emailAddress)
+	{
 		this.emailAddress = emailAddress;
 	}
 
@@ -100,7 +109,8 @@ public class LoginInfo implements Serializable {
 	 * 
 	 * @return The nickname.
 	 */
-	public String getNickname() {
+	public String getNickname()
+	{
 		return this.nickname;
 	}
 
@@ -110,8 +120,19 @@ public class LoginInfo implements Serializable {
 	 * @param nickname
 	 *            The nickname of the user.
 	 */
-	public void setNickname(String nickname) {
+	public void setNickname(String nickname)
+	{
 		this.nickname = nickname;
+	}
+
+	/**
+	 * Gets the user's name.
+	 * 
+	 * @return The user's name.
+	 */
+	public String getUser()
+	{
+		return this.nickname.substring(0, this.nickname.indexOf("@"));
 	}
 
 }

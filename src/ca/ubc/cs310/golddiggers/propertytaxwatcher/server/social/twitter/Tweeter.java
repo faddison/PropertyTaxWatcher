@@ -4,8 +4,6 @@ import twitter4j.Twitter;
 import twitter4j.TwitterException;
 import twitter4j.TwitterFactory;
 import twitter4j.conf.ConfigurationBuilder;
-import ca.ubc.cs310.golddiggers.propertytaxwatcher.util.logging.Logger;
-import ca.ubc.cs310.golddiggers.propertytaxwatcher.util.logging.LoggerFactory;
 
 /**
  * Tweeter class. This class is responsible for setting up the application's
@@ -16,7 +14,9 @@ import ca.ubc.cs310.golddiggers.propertytaxwatcher.util.logging.LoggerFactory;
  */
 public class Tweeter
 {
-	private static final Logger LOGGER = LoggerFactory.getLogger(Tweeter.class);
+	// TODO: Fix permission denied for logging on the app engine.
+	// private static final Logger LOGGER =
+	// LoggerFactory.getLogger(Tweeter.class);
 
 	// The underlying Twitter4j instance.
 	private Twitter twitter;
@@ -57,7 +57,7 @@ public class Tweeter
 	public void updateStatus(String message) throws TwitterException
 	{
 		twitter.updateStatus(message);
-		LOGGER.debug("Successfully updated status to {}.", message);
+		// LOGGER.debug("Successfully updated status to {}.", message);
 	}
 
 	/**
