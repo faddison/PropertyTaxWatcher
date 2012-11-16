@@ -3,6 +3,7 @@ package ca.ubc.cs310.golddiggers.propertytaxwatcher.client;
 import java.util.ArrayList;
 import java.util.List;
 
+import ca.ubc.cs310.golddiggers.propertytaxwatcher.client.widget.TwitterWidget;
 import ca.ubc.cs310.golddiggers.propertytaxwatcher.server.PropertyTax;
 
 import com.google.gwt.core.client.EntryPoint;
@@ -137,11 +138,20 @@ public class PropertyTaxWatcher implements EntryPoint
 			signOutLink.setHref(loginInfo.getLogoutUrl());
 			RootPanel.get("propertyTaxList").add(signOutLink);
 		}
+
+		// Load the Twitter feed.
+		loadTwitterFeed();
+
 		// Load the test property taxes.
 		// initializePropertyTaxes();
 		// loadPropertyTaxes();
 		initializeLocalPropertyTaxes();
 		runVisualizations();
+	}
+
+	private void loadTwitterFeed()
+	{
+		mainPanel.add(new TwitterWidget());
 	}
 
 	public void runVisualizations()
@@ -220,11 +230,6 @@ public class PropertyTaxWatcher implements EntryPoint
 		map.draw(dataView);
 		return map.asWidget();
 	}
-
-	// private DataTable getDataTable()
-	// {
-	// return this.dataTable;
-	// }
 
 	private DataTable populateDataTable(DataTable dataTable)
 	{
@@ -847,21 +852,7 @@ public class PropertyTaxWatcher implements EntryPoint
 				String message = loginInfo.getUser()
 						+ " searched for property tax values from " + min + "-"
 						+ max + "!";
-				tweeterService.updateStatus(message, new AsyncCallback<Void>()
-				{
-					@Override
-					public void onFailure(Throwable caught)
-					{
-						System.out.println("Failed to tweet!");
-					}
-
-					@Override
-					public void onSuccess(Void result)
-					{
-						System.out.println("Status update successful!");
-					}
-
-				});
+				tweet(message);
 			}
 		});
 
@@ -887,22 +878,33 @@ public class PropertyTaxWatcher implements EntryPoint
 				String message = loginInfo.getUser()
 						+ " searched for property tax values with postal code: "
 						+ postal + "";
-				tweeterService.updateStatus(message, new AsyncCallback<Void>()
-				{
-					@Override
-					public void onFailure(Throwable caught)
-					{
-						System.out.println("Failed to tweet!");
-					}
-
-					@Override
-					public void onSuccess(Void result)
-					{
-						System.out.println("Status update successful!");
-					}
-
-				});
+				tweet(message);
 			}
+		});
+	}
+
+	/**
+	 * Tweets a message on the golddigger310's Twitter account.
+	 * 
+	 * @param message
+	 *            The message to tweet.
+	 */
+	private void tweet(String message)
+	{
+		tweeterService.updateStatus(message, new AsyncCallback<Void>()
+		{
+			@Override
+			public void onFailure(Throwable caught)
+			{
+				GWT.log("Failed to tweet!");
+			}
+
+			@Override
+			public void onSuccess(Void result)
+			{
+				GWT.log("Status update successful!");
+			}
+
 		});
 	}
 

@@ -1,5 +1,9 @@
 package ca.ubc.cs310.golddiggers.propertytaxwatcher.server.social.twitter;
 
+import java.util.ArrayList;
+
+import twitter4j.ResponseList;
+import twitter4j.Status;
 import twitter4j.Twitter;
 import twitter4j.TwitterException;
 import twitter4j.TwitterFactory;
@@ -58,6 +62,28 @@ public class Tweeter
 	{
 		twitter.updateStatus(message);
 		// LOGGER.debug("Successfully updated status to {}.", message);
+	}
+
+	/**
+	 * Gets a list of Twitter status updates. This method only grabs the message
+	 * from the Status object.
+	 * 
+	 * @return List of twitter status updates.
+	 * @throws TwitterException
+	 *             If the stauses fail to be retrieved.
+	 */
+	public ArrayList<String> getStatusFeed() throws TwitterException
+	{
+		ArrayList<String> messages = new ArrayList<String>();
+
+		ResponseList<Status> statuses = twitter.getUserTimeline();
+		for (Status status : statuses)
+		{
+			messages.add(status.getText());
+		}
+
+		// LOGGER.debug("Successfully grabbed {} statuses.", messages.size());
+		return messages;
 	}
 
 	/**
