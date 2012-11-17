@@ -15,8 +15,6 @@ import com.google.gwt.user.client.ui.HorizontalPanel;
  */
 public class PageMenu extends HorizontalPanel
 {
-	private static final int BUTTON_SPACING = 5;
-
 	public PageMenu()
 	{
 		initMenu();
@@ -86,6 +84,8 @@ public class PageMenu extends HorizontalPanel
 						.getLogoutUrl());
 			}
 		});
+		
+		this.setHorizontalAlignment(ALIGN_CENTER);
 
 		this.add(home);
 		this.add(search);
@@ -94,6 +94,6 @@ public class PageMenu extends HorizontalPanel
 		this.add(about);
 		this.add(logout);
 
-		this.setSpacing(BUTTON_SPACING);
+		this.setStylePrimaryName("container-narrow");
 	}
 }

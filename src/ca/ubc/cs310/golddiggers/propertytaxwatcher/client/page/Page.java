@@ -26,11 +26,13 @@ public abstract class Page
 		
 		// Create the pages menu.
 		PageMenu pageMenu = new PageMenu();
-		root.add(pageMenu);
 
-		// Draw the title.
-		HTML title = new HTML("<h1>Property Tax Watcher</h1>");
+		// Draw the title and menu.
+		HTML title = new HTML("<center><h3 class = \"brand\">Property Tax Watcher</h3></center>");
+		HTML divider = new HTML("<hr>");
 		root.add(title);
+		root.add(pageMenu);
+		root.add(divider);
 	}
 
 	public String getName()
