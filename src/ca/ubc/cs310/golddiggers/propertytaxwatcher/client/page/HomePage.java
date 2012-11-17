@@ -17,7 +17,7 @@ public class HomePage extends Page
 {
 	private static final String description = "<p>This is the Property Tax Watcher application!\n"
 			+ "You can search for propertys in Vancouver "
-			+ "using the searching feature and compare"
+			+ "using the searching feature and compare "
 			+ "the values using the comparison feature!\n</p>";
 
 	// Widgets that exist on the home page.

@@ -7,6 +7,10 @@ import javax.jdo.annotations.PrimaryKey;
 
 @PersistenceCapable
 public class PropertyTax implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@PrimaryKey
 	private String pid;
 	private String legal_type;

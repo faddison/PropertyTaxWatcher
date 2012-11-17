@@ -3,7 +3,7 @@ package ca.ubc.cs310.golddiggers.propertytaxwatcher.server;
 import java.util.ArrayList;
 
 import twitter4j.TwitterException;
-import ca.ubc.cs310.golddiggers.propertytaxwatcher.client.TweeterService;
+import ca.ubc.cs310.golddiggers.propertytaxwatcher.client.service.TweeterService;
 import ca.ubc.cs310.golddiggers.propertytaxwatcher.server.social.twitter.Tweeter;
 
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;

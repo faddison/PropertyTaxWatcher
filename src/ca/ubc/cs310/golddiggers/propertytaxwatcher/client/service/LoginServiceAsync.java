@@ -1,4 +1,6 @@
-package ca.ubc.cs310.golddiggers.propertytaxwatcher.client;
+package ca.ubc.cs310.golddiggers.propertytaxwatcher.client.service;
+
+import ca.ubc.cs310.golddiggers.propertytaxwatcher.client.LoginInfo;
 
 import com.google.gwt.user.client.rpc.AsyncCallback;
 

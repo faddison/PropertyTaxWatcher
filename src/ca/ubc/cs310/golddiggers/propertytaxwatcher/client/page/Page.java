@@ -23,7 +23,7 @@ public abstract class Page
 
 		// Clear any widgets on the RootPanel.
 		root.clear();
-
+		
 		// Create the pages menu.
 		PageMenu pageMenu = new PageMenu();
 		root.add(pageMenu);

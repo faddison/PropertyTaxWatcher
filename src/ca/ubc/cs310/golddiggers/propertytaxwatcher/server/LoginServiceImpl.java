@@ -1,7 +1,7 @@
 package ca.ubc.cs310.golddiggers.propertytaxwatcher.server;
 
 import ca.ubc.cs310.golddiggers.propertytaxwatcher.client.LoginInfo;
-import ca.ubc.cs310.golddiggers.propertytaxwatcher.client.LoginService;
+import ca.ubc.cs310.golddiggers.propertytaxwatcher.client.service.LoginService;
 
 import com.google.appengine.api.users.User;
 import com.google.appengine.api.users.UserService;
