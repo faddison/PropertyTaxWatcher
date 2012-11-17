@@ -15,6 +15,8 @@ import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Button;
+import com.google.gwt.user.client.ui.HTML;
+import com.google.gwt.user.client.ui.HasHorizontalAlignment;
 import com.google.gwt.user.client.ui.HorizontalPanel;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.RootPanel;
@@ -35,9 +37,9 @@ import com.google.gwt.visualization.client.visualizations.Table;
 public class SearchPage extends Page
 {
 	// Search fields.
-	private VerticalPanel searchPanel = new VerticalPanel();
-	private HorizontalPanel currentValPanel = new HorizontalPanel();
-	private HorizontalPanel postalCodePanel = new HorizontalPanel();
+	private HorizontalPanel searchPanel = new HorizontalPanel();
+	private VerticalPanel currentValPanel = new VerticalPanel();
+	private VerticalPanel postalCodePanel = new VerticalPanel();
 	private TextBox minCurrentValTextBox = new TextBox();
 	private TextBox maxCurrentValTextBox = new TextBox();
 	private TextBox postalCodeTextBox = new TextBox();
@@ -91,6 +93,10 @@ public class SearchPage extends Page
 
 	private void createSearchWidget(final DataTable dataTable)
 	{
+		searchPanel.setHorizontalAlignment(HasHorizontalAlignment.ALIGN_CENTER);
+		currentValPanel.setHorizontalAlignment(HasHorizontalAlignment.ALIGN_CENTER);
+		postalCodePanel.setHorizontalAlignment(HasHorizontalAlignment.ALIGN_CENTER);
+		
 		currentValPanel.add(currentValLabel);
 		currentValPanel.add(minCurrentValTextBox);
 		currentValPanel.add(maxCurrentValTextBox);
@@ -103,8 +109,19 @@ public class SearchPage extends Page
 		searchPanel.add(currentValPanel);
 		searchPanel.add(postalCodePanel);
 
-		currentValLabel.setText("search property taxes via current land value");
-		postalCodeLabel.setText("search property taxes via postal code");
+		currentValLabel.setText("Search over a range of property values: ");
+		postalCodeLabel.setText("Search for property values in a postal code:");
+		minCurrentValTextBox.setText("Minimum Value");
+		maxCurrentValTextBox.setText("Maximum Value");
+		
+		searchPanel.setStylePrimaryName("container-narrow");
+		searchPanel.addStyleName("row");
+		currentValPanel.setStylePrimaryName("span4");
+		currentValPanel.addStyleName("hero-unit");
+		postalCodePanel.setStylePrimaryName("span4");
+		postalCodePanel.addStyleName("hero-unit");
+		searchCurrentValButton.setStylePrimaryName("btn btn-success");
+		searchPostalCodeButton.setStylePrimaryName("btn btn-success");
 
 		RootPanel.get().add(searchPanel);
 
@@ -166,8 +183,7 @@ public class SearchPage extends Page
 				displayResult(dataTable);
 
 				// Tweet the search!
-				String message = PropertyTaxWatcher.loginInfo == null ? "FIXME"
-						: PropertyTaxWatcher.loginInfo.getNickname()
+				String message = PropertyTaxWatcher.loginInfo.getNickname()
 								+ " searched for property tax values from "
 								+ min + "-" + max + "!";
 				tweet(message);
@@ -193,8 +209,7 @@ public class SearchPage extends Page
 				displayResult(dataTable);
 
 				// Tweet the search!
-				String message = PropertyTaxWatcher.loginInfo == null ? "FIXME"
-						: PropertyTaxWatcher.loginInfo.getNickname()
+				String message = PropertyTaxWatcher.loginInfo.getNickname()
 								+ " searched for property tax values with postal code: "
 								+ postal + "";
 				tweet(message);

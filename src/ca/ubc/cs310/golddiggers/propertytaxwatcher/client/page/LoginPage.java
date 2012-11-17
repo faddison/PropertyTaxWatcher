@@ -8,8 +8,11 @@ import ca.ubc.cs310.golddiggers.propertytaxwatcher.client.service.LoginServiceAs
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Anchor;
+import com.google.gwt.user.client.ui.HTML;
+import com.google.gwt.user.client.ui.HasHorizontalAlignment;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.RootPanel;
+import com.google.gwt.user.client.ui.VerticalPanel;
 
 /**
  * LoginPage class. This class represents the login page on the Property Tax
@@ -20,7 +23,7 @@ import com.google.gwt.user.client.ui.RootPanel;
 public class LoginPage extends Page
 {
 
-	private static final String LOGIN_MESSAGE = "Please sign in to your Google Account "
+	private static final String LOGIN_MESSAGE = "<div class = \"hero-unit\"><center>Please sign in to your Google Account "
 			+ "to access the PropertyTaxWatcher application.";
 
 	public LoginPage()
@@ -58,16 +61,23 @@ public class LoginPage extends Page
 
 	private void loadLoginPage()
 	{
+		VerticalPanel layout = new VerticalPanel();
 		RootPanel root = RootPanel.get();
 		root.clear();
+		
+		layout.setStylePrimaryName("container-narrow");
+		layout.setHorizontalAlignment(HasHorizontalAlignment.ALIGN_CENTER);
 
 		// Assemble login panel.
-		Label loginLabel = new Label(LOGIN_MESSAGE);
-		root.add(loginLabel);
-
+		HTML loginLabel = new HTML(LOGIN_MESSAGE);
+		layout.add(loginLabel);
+		
 		Anchor signInLink = new Anchor("Sign In");
+		signInLink.setStylePrimaryName("btn");
 		signInLink.setHref(PropertyTaxWatcher.loginInfo.getLoginUrl());
-		root.add(signInLink);
+		layout.add(signInLink);
+		
+		root.add(layout);
 	}
 
 }
