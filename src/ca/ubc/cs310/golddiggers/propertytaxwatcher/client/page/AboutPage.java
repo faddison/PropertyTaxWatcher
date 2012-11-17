@@ -1,7 +1,12 @@
 package ca.ubc.cs310.golddiggers.propertytaxwatcher.client.page;
 
-import com.google.gwt.user.client.ui.RootPanel;
 
+/**
+ * AboutPage class. This class represents the about page on the Property Tax
+ * Watcher web app.
+ * 
+ * @author Hubert
+ */
 public class AboutPage extends Page
 {
 
@@ -15,8 +20,7 @@ public class AboutPage extends Page
 	{
 		super.loadPage();
 
-		RootPanel root = RootPanel.get();
-
+		// RootPanel root = RootPanel.get();
 		// TODO: Put your code here, add to the root panel.
 	}
 

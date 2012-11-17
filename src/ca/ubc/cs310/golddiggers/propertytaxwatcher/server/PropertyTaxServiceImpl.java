@@ -10,8 +10,8 @@ import javax.jdo.PersistenceManager;
 import javax.jdo.PersistenceManagerFactory;
 import javax.jdo.Query;
 
-import ca.ubc.cs310.golddiggers.propertytaxwatcher.client.PropertyTaxService;
 import ca.ubc.cs310.golddiggers.propertytaxwatcher.client.exception.NotLoggedInException;
+import ca.ubc.cs310.golddiggers.propertytaxwatcher.client.service.PropertyTaxService;
 
 import com.google.appengine.api.users.User;
 import com.google.appengine.api.users.UserService;
@@ -38,6 +38,7 @@ public class PropertyTaxServiceImpl extends RemoteServiceServlet implements
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	public void removePropertyTax(String pid) throws NotLoggedInException {
 		checkLoggedIn();
 		PersistenceManager pm = getPersistenceManager();
@@ -62,6 +63,7 @@ public class PropertyTaxServiceImpl extends RemoteServiceServlet implements
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	public ArrayList<PropertyTax> getPropertyTaxes()
 			throws NotLoggedInException {
 		checkLoggedIn();

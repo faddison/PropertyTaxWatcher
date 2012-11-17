@@ -1,4 +1,4 @@
-package ca.ubc.cs310.golddiggers.propertytaxwatcher.client;
+package ca.ubc.cs310.golddiggers.propertytaxwatcher.client.service;
 
 import java.util.List;
 
