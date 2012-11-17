@@ -4,6 +4,7 @@ import ca.ubc.cs310.golddiggers.propertytaxwatcher.client.widget.GooglePlusOneWi
 import ca.ubc.cs310.golddiggers.propertytaxwatcher.client.widget.TwitterWidget;
 
 import com.google.gwt.user.client.ui.HTML;
+import com.google.gwt.user.client.ui.HasHorizontalAlignment;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.VerticalPanel;
 
@@ -15,10 +16,10 @@ import com.google.gwt.user.client.ui.VerticalPanel;
  */
 public class HomePage extends Page
 {
-	private static final String description = "<p>This is the Property Tax Watcher application!\n"
-			+ "You can search for propertys in Vancouver "
+	private static final String description = "<div class = \"hero-unit\"><p>This is the Property Tax Watcher application!\n"
+			+ "You can search for properties in Vancouver "
 			+ "using the searching feature and compare "
-			+ "the values using the comparison feature!\n</p>";
+			+ "the values using the comparison feature!\n</p></div>";
 
 	// Widgets that exist on the home page.
 	private TwitterWidget twitterWidget = new TwitterWidget();
@@ -37,14 +38,14 @@ public class HomePage extends Page
 	{
 		super.loadPage();
 
-		// If not logged in switch to login page
-
-		// If logged in show the description of product, +1, twitter
+		// Show the description of propery tax watcher, twitter feed, +1.
 		VerticalPanel layout = new VerticalPanel();
-		layout.setSize("500px", "500px");
+		
+		layout.setHorizontalAlignment(HasHorizontalAlignment.ALIGN_CENTER);
 		layout.add(new HTML(description));
 		layout.add(twitterWidget);
 		layout.add(plusOneWidget);
+		layout.setStylePrimaryName("container-narrow");
 
 		RootPanel.get().add(layout);
 	}
