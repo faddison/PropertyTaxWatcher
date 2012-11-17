@@ -82,6 +82,7 @@ public class PageMenu extends HorizontalPanel
 			{
 				Window.Location.assign(PropertyTaxWatcher.loginInfo
 						.getLogoutUrl());
+				PropertyTaxWatcher.LOGIN_PAGE.loadPage();
 			}
 		});
 		
