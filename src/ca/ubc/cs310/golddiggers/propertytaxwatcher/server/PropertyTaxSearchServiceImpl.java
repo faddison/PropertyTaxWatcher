@@ -26,6 +26,7 @@ public class PropertyTaxSearchServiceImpl extends RemoteServiceServlet implement
 	public ArrayList<PropertyTax> searchProperty(SearchParameter para){
 		PersistenceManager pm = getPersistenceManager();
 		List<PropertyTax> propertyTaxes = null;
+		System.out.println("Remote reached!");
 		try {
 			Query q = pm.newQuery(PropertyTax.class);
 			q.setFilter(createFilter(para));
@@ -78,6 +79,7 @@ public class PropertyTaxSearchServiceImpl extends RemoteServiceServlet implement
 			}
 
 			propertyTaxes.size();
+			System.out.println("Remote excuted!");
 		} 
 		finally {
 			pm.close();
