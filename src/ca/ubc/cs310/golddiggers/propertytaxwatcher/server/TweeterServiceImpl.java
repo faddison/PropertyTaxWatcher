@@ -30,7 +30,7 @@ public class TweeterServiceImpl extends RemoteServiceServlet implements
 			tweeter.updateStatus(message);
 		} catch (TwitterException e)
 		{
-			e.printStackTrace();
+			System.out.println(e.getMessage());
 		}
 	}
 
@@ -43,7 +43,7 @@ public class TweeterServiceImpl extends RemoteServiceServlet implements
 			statuses = tweeter.getStatusFeed();
 		} catch (TwitterException e)
 		{
-			e.printStackTrace();
+			System.out.println(e.getMessage());
 		}
 
 		return statuses;

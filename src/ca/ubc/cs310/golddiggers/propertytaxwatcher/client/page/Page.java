@@ -5,6 +5,12 @@ import ca.ubc.cs310.golddiggers.propertytaxwatcher.client.widget.PageMenu;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.RootPanel;
 
+/**
+ * Page class. This is the abstract framework for a page on the
+ * PropertyTaxWatcher application.
+ * 
+ * @author Hubert Ngu
+ */
 public abstract class Page
 {
 	public String name;
@@ -15,7 +21,8 @@ public abstract class Page
 	}
 
 	/**
-	 * Clears the page and reloads the page menu and title.
+	 * Clears the page and reloads the page menu and title. All inheriting
+	 * classes should call super.loadPage().
 	 */
 	public void loadPage()
 	{
@@ -23,16 +30,12 @@ public abstract class Page
 
 		// Clear any widgets on the RootPanel.
 		root.clear();
-		
-		// Create the pages menu.
-		PageMenu pageMenu = new PageMenu();
 
 		// Draw the title and menu.
-		HTML title = new HTML("<center><h3 class = \"brand\">Property Tax Watcher</h3></center>");
-		HTML divider = new HTML("<hr>");
-		root.add(title);
-		root.add(pageMenu);
-		root.add(divider);
+		root.add(new HTML("<center><h3 class = \"brand\">Property Tax Watcher</h3></center>"));
+		root.add(new HTML("<hr>"));
+		root.add(new PageMenu());
+		root.add(new HTML("<hr>"));
 	}
 
 	public String getName()

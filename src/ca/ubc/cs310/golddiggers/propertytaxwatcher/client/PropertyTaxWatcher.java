@@ -9,8 +9,6 @@ import ca.ubc.cs310.golddiggers.propertytaxwatcher.client.page.HomePage;
 import ca.ubc.cs310.golddiggers.propertytaxwatcher.client.page.LoginPage;
 import ca.ubc.cs310.golddiggers.propertytaxwatcher.client.page.Page;
 import ca.ubc.cs310.golddiggers.propertytaxwatcher.client.page.SearchPage;
-import ca.ubc.cs310.golddiggers.propertytaxwatcher.client.service.PropertyTaxSearchService;
-import ca.ubc.cs310.golddiggers.propertytaxwatcher.client.service.PropertyTaxSearchServiceAsync;
 import ca.ubc.cs310.golddiggers.propertytaxwatcher.client.service.PropertyTaxService;
 import ca.ubc.cs310.golddiggers.propertytaxwatcher.client.service.PropertyTaxServiceAsync;
 import ca.ubc.cs310.golddiggers.propertytaxwatcher.server.PropertyTax;

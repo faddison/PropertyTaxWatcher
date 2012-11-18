@@ -16,10 +16,9 @@ import com.google.gwt.user.client.ui.VerticalPanel;
  */
 public class HomePage extends Page
 {
-	private static final String description = "<div class = \"hero-unit\"><p>This is the Property Tax Watcher application!\n"
-			+ "You can search for properties in Vancouver "
-			+ "using the searching feature and compare "
-			+ "the values using the comparison feature!\n</p></div>";
+	private static final String DESCRIPTION = "<div class = \"hero-unit\">"
+			+ "<p>Search and compare propertys in Vancouver area!<br />"
+			+ "The entire data set is also viewable on the Data page</p></div>";
 
 	// Widgets that exist on the home page.
 	private TwitterWidget twitterWidget = new TwitterWidget();
@@ -40,12 +39,12 @@ public class HomePage extends Page
 
 		// Show the description of propery tax watcher, twitter feed, +1.
 		VerticalPanel layout = new VerticalPanel();
-		
+
 		layout.setHorizontalAlignment(HasHorizontalAlignment.ALIGN_CENTER);
-		layout.add(new HTML(description));
+		layout.add(new HTML(DESCRIPTION));
 		layout.add(twitterWidget);
 		layout.add(plusOneWidget);
-		layout.setStylePrimaryName("container-narrow");
+		layout.setStylePrimaryName("container-home");
 
 		RootPanel.get().add(layout);
 	}
