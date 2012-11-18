@@ -218,82 +218,33 @@ public class SearchPage extends Page
 		{
 			public void onClick(ClickEvent event)
 			{
-				System.out.println("clicked!");
 				SearchParameter para = new SearchParameter();
 
 				String message = PropertyTaxWatcher.loginInfo.getNickname()
 						+ " searched for property tax values with";
 
-				String minMessage = minCurrentValTextBox.getText();
-				if (!minMessage.isEmpty()
-						&& !minMessage.matches("Minimum Land Value"))
+				String minMessage = extractMinMessage(para);
+				if (minMessage == null)
 				{
-					if (!minMessage.matches("^[0-9\\.]{1,}$"))
-					{
-						Window.alert("'" + minMessage
-								+ "' is not a valid value.");
-						minCurrentValTextBox.selectAll();
-						return;
-					} else
-					{
-						para.setMinCurrentLandValue(Double
-								.parseDouble(minMessage));
-						message += "lower limit = " + minMessage + " ";
-					}
-				}
-
-				String maxMessage = maxCurrentValTextBox.getText();
-				if (!maxMessage.isEmpty()
-						&& !maxMessage.matches("Maximum Land Value"))
-				{
-					if (!maxMessage.matches("^[0-9\\.]{1,}$"))
-					{
-						Window.alert("'" + maxMessage
-								+ "' is not a valid value.");
-						maxCurrentValTextBox.selectAll();
-						return;
-					} else
-					{
-						para.setMaxCurrentLandValue(Double
-								.parseDouble(maxMessage));
-						message += "upper limit = " + maxMessage + " ";
-					}
-				}
-
-				if (para.hasMinCurrentLandValue()
-						&& para.hasMaxCurrentLandValue()
-						&& para.getMinCurrentLandValue() > para
-								.getMaxCurrentLandValue())
-				{
-					Window.alert("'" + minMessage + "' is larger than '"
-							+ maxMessage + ", not a valid bound.");
-					minCurrentValTextBox.selectAll();
-					maxCurrentValTextBox.selectAll();
 					return;
 				}
+				message += minMessage;
 
-				String postal = postalCodeTextBox.getText().toUpperCase()
-						.trim().replaceAll("\\s", "");
-				if (!postalCodeTextBox.getText().matches("Postal Code")
-						&& !postal.isEmpty())
+				String maxMessage = extractMaxMessage(para);
+				if (maxMessage == null)
 				{
-					if (!postal.matches("[A-Z][0-9][A-Z][0-9][A-Z][0-9]"))
-					{
-						Window.alert("'" + postal
-								+ "' is not a valid postal code.");
-						postalCodeTextBox.selectAll();
-						return;
-					} else
-					{
-						para.setPostalCode(postal.substring(0, 3) + " "
-								+ postal.substring(3));
-						message += "and postal code " + postal + " ";
-					}
+					return;
 				}
+				message += maxMessage;
 
-				if (!para.hasMaxCurrentLandValue()
-						&& !para.hasMinCurrentLandValue()
-						&& !para.hasPostalCode())
+				String postalCode = extractPostalCode(para);
+				if (postalCode == null)
+				{
+					return;
+				}
+				message += postalCode;
+
+				if (!isParameterFilled(para))
 				{
 					Window.alert("Please type in search parameter.");
 					minCurrentValTextBox.selectAll();
@@ -301,24 +252,7 @@ public class SearchPage extends Page
 				}
 				message += ".";
 
-				System.out.println("Go to Server!");
-				propertyTaxSearchService.searchProperty(para,
-						new AsyncCallback<ArrayList<PropertyTax>>()
-						{
-							public void onFailure(Throwable error)
-							{
-								GWT.log(error.getMessage());
-							}
-
-							public void onSuccess(ArrayList<PropertyTax> result)
-							{
-								hasSearch = true;
-								displayResult(result);
-								GWT.log("Search Succeed!");
-								System.out.println("Result back!");
-							}
-						});
-
+				search(para);
 				tweet(message);
 			}
 		});
@@ -390,5 +324,122 @@ public class SearchPage extends Page
 		hasCompare = false;
 		isDetail = false;
 		dataTable = null;
+	}
+	
+	private void search(SearchParameter para) {
+		propertyTaxSearchService.searchProperty(para,
+				new AsyncCallback<ArrayList<PropertyTax>>()
+				{
+					public void onFailure(Throwable error)
+					{
+						GWT.log(error.getMessage());
+					}
+
+					public void onSuccess(ArrayList<PropertyTax> result)
+					{
+						hasSearch = true;
+						displayResult(result);
+						GWT.log("Search Succeed!");
+					}
+				});
+	}
+
+	private String extractMinMessage(SearchParameter para)
+	{
+		String minMessage = minCurrentValTextBox.getText();
+		if (minSearchable(minMessage))
+		{
+			if (!isNumber(minMessage))
+			{
+				Window.alert("'" + minMessage + "' is not a valid value.");
+				minCurrentValTextBox.selectAll();
+				return null;
+			}
+
+			para.setMinCurrentLandValue(Double.parseDouble(minMessage));
+			return "lower limit = " + minMessage + " ";
+
+		}
+		return "";
+	}
+
+	private String extractMaxMessage(SearchParameter para)
+	{
+		String maxMessage = maxCurrentValTextBox.getText();
+		if (maxSearchable(maxMessage))
+		{
+			if (!isNumber(maxMessage))
+			{
+				Window.alert("'" + maxMessage + "' is not a valid value.");
+				maxCurrentValTextBox.selectAll();
+				return null;
+			} else
+			{
+				para.setMaxCurrentLandValue(Double.parseDouble(maxMessage));
+				return "upper limit = " + maxMessage + " ";
+			}
+		}
+
+		if (para.hasMinCurrentLandValue()
+				&& para.hasMaxCurrentLandValue()
+				&& para.getMinCurrentLandValue() > para
+						.getMaxCurrentLandValue())
+		{
+			Window.alert("'" + minCurrentValTextBox.getText()
+					+ "' is larger than '" + maxMessage
+					+ ", not a valid bound.");
+			minCurrentValTextBox.selectAll();
+			maxCurrentValTextBox.selectAll();
+			return null;
+		}
+		return "";
+	}
+
+	private String extractPostalCode(SearchParameter para)
+	{
+		String postal = postalCodeTextBox.getText().toUpperCase().trim()
+				.replaceAll("\\s", "");
+		if (!postalCodeTextBox.getText().matches("Postal Code")
+				&& !postal.isEmpty())
+		{
+			if (!postal.matches("[A-Z][0-9][A-Z][0-9][A-Z][0-9]"))
+			{
+				Window.alert("'" + postal + "' is not a valid postal code.");
+				postalCodeTextBox.selectAll();
+				return null;
+			} else
+			{
+				para.setPostalCode(postal.substring(0, 3) + " "
+						+ postal.substring(3));
+				return "and postal code " + postal + " ";
+			}
+		}
+		return "";
+	}
+
+	private boolean isParameterFilled(SearchParameter para)
+	{
+		return para.hasMaxCurrentLandValue() || para.hasMinCurrentLandValue()
+				|| para.hasPostalCode();
+	}
+
+	private boolean isNumber(String number)
+	{
+		return number.matches("^[0-9\\.]{1,}$");
+	}
+
+	private boolean minSearchable(String message)
+	{
+		return equalsSearchable(message, "Minimum Land Value");
+	}
+
+	private boolean maxSearchable(String message)
+	{
+		return equalsSearchable(message, "Maximum Land Value");
+	}
+
+	private boolean equalsSearchable(String message, String condition)
+	{
+		return !message.isEmpty() && !message.equals(condition);
 	}
 }
