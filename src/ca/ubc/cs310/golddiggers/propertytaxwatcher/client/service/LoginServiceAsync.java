@@ -9,7 +9,8 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
  * 
  * @author Hubert Ngu
  */
-public interface LoginServiceAsync {
+public interface LoginServiceAsync
+{
 
 	/**
 	 * Login method that must be implemented.

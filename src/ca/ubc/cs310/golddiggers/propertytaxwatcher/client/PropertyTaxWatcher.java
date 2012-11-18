@@ -12,9 +12,9 @@ import ca.ubc.cs310.golddiggers.propertytaxwatcher.client.page.SearchPage;
 import ca.ubc.cs310.golddiggers.propertytaxwatcher.server.PropertyTax;
 
 import com.google.gwt.core.client.EntryPoint;
+import com.google.gwt.visualization.client.AbstractDataTable.ColumnType;
 import com.google.gwt.visualization.client.DataTable;
 import com.google.gwt.visualization.client.Query;
-import com.google.gwt.visualization.client.AbstractDataTable.ColumnType;
 import com.google.gwt.visualization.client.Query.Callback;
 import com.google.gwt.visualization.client.Query.SendMethod;
 import com.google.gwt.visualization.client.QueryResponse;

@@ -39,6 +39,16 @@
   </servlet-mapping>
 
   <servlet>
+    <servlet-name>PropertyTaxSearchService</servlet-name>
+    <servlet-class>ca.ubc.cs310.golddiggers.propertytaxwatcher.server.PropertyTaxSearchServiceImpl</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>PropertyTaxSearchService</servlet-name>
+    <url-pattern>/propertytaxwatcher/Search</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
     <servlet-name>TweeterService</servlet-name>
     <servlet-class>ca.ubc.cs310.golddiggers.propertytaxwatcher.server.TweeterServiceImpl</servlet-class>
   </servlet>

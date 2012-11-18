@@ -8,7 +8,5 @@
 gwt-unitCache/
 test-classes
 /war/WEB-INF/appengine-generated
-/war/WEB-INF/classes
 /war/WEB-INF/deploy
 /war/propertytaxwatcher
-/war/WEB-INF/lib
