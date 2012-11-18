@@ -49,16 +49,17 @@ public class SearchPage extends Page
 	private Button detailResultButton = new Button("Detail/Simple View");
 	private Button compareButton = new Button("Compare");
 	private Button clearButton = new Button("Clear");
+	private Label searchLabel = new Label("Search Result.");
 	private VerticalPanel resultPanel = new VerticalPanel();
 	private HorizontalPanel resultSubPanel = new HorizontalPanel();
 	private final TabPanel resultTabPanel = new TabPanel();
 	private final TabPanel compareTabPanel = new TabPanel();
 	private final int[] resultSimpleColumn = new int[] { 0, 11, 12, 19, 20 };
 	private final int[] resultDetailColumn = new int[26];
-	private boolean hasSearch = false;
-	private boolean hasCompare = false;
-	private boolean isDetail = false;
-	private DataTable dataTable = null;
+	private boolean hasSearch;
+	private boolean hasCompare;
+	private boolean isDetail;
+	private DataTable dataTable;
 
 	// Server services
 	private static final TweeterServiceAsync tweeterService = GWT
@@ -69,7 +70,6 @@ public class SearchPage extends Page
 	public SearchPage()
 	{
 		super("Search");
-		initializeColumnIndices();
 	}
 
 	@Override
@@ -77,6 +77,7 @@ public class SearchPage extends Page
 	{
 		super.loadPage();
 
+		initializeFields();
 		this.runVisualizations();
 	}
 
@@ -118,7 +119,7 @@ public class SearchPage extends Page
 
 		RootPanel.get().add(searchPanel);
 
-		resultPanel.add(new Label("Search Result."));
+		resultPanel.add(searchLabel);
 		resultPanel.add(detailResultButton);
 		resultPanel.add(compareButton);
 		resultPanel.add(resultSubPanel);
@@ -143,10 +144,7 @@ public class SearchPage extends Page
 		{
 			public void onClick(ClickEvent event)
 			{
-				hasSearch = false;
-				hasCompare = false;
-				isDetail = false;
-				dataTable = null;
+				initializeFields();
 				
 				resultTabPanel.clear();
 				compareTabPanel.clear();
@@ -392,9 +390,14 @@ public class SearchPage extends Page
 		return map.asWidget();
 	}
 
-	private void initializeColumnIndices()
+	private void initializeFields()
 	{
 		for (int i = 0; i < resultDetailColumn.length; i++)
 			resultDetailColumn[i] = i;
+		
+		hasSearch = false;
+		hasCompare = false;
+		isDetail = false;
+		dataTable = null;
 	}
 }
