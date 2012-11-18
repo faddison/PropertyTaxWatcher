@@ -47,7 +47,7 @@ public class GooglePlusOneWidget extends Composite
 
 	private static String getPlusOneHTMLString(String url)
 	{
-		return "Recommend Property Tax Watcher <g:plusone href=\""
+		return "Recommend Property Tax Watcher on Google!<br /><g:plusone href=\""
 				+ url + "\"></g:plusone>";
 	}
 }

@@ -227,6 +227,20 @@ a:hover {
   *zoom: 1;
   width: 400px;
 }
+
+.container-home {
+  margin-right: auto;
+  margin-left: auto;
+  *zoom: 1;
+  width: 600px;
+}
+
+.container-about {
+  margin-right: auto;
+  margin-left: auto;
+  *zoom: 1;
+  width: 700px;
+}
 .container,
 .navbar-static-top .container,
 .navbar-fixed-top .container,

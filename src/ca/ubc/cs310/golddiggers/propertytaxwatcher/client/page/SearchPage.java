@@ -24,17 +24,15 @@ import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.TabPanel;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.VerticalPanel;
-import com.google.gwt.user.client.ui.Widget;
 import com.google.gwt.visualization.client.AbstractDataTable;
 import com.google.gwt.visualization.client.DataTable;
 import com.google.gwt.visualization.client.DataView;
 import com.google.gwt.visualization.client.VisualizationUtils;
-import com.google.gwt.visualization.client.visualizations.MapVisualization;
 import com.google.gwt.visualization.client.visualizations.Table;
 
 /**
  * SearchPage class. This class represents the search page on the Property Tax
- * Watch web app.
+ * Watch web application.
  * 
  * @author Hubert Ngu
  */
@@ -127,25 +125,26 @@ public class SearchPage extends Page
 		resultSubPanel.add(compareTabPanel);
 		resultPanel.setVisible(hasSearch);
 		compareTabPanel.setVisible(hasCompare);
-		
+
 		resultTabPanel.setSize("600px", "400px");
 		compareTabPanel.setSize("600px", "400px");
 
 		RootPanel.get().add(resultPanel);
-		
+
 		createSearchButton();
 		createDetailResultButton();
 		createCompareButton();
 		createClearButton();
 	}
 
-	private void createClearButton(){
+	private void createClearButton()
+	{
 		clearButton.addClickHandler(new ClickHandler()
 		{
 			public void onClick(ClickEvent event)
 			{
 				initializeFields();
-				
+
 				resultTabPanel.clear();
 				compareTabPanel.clear();
 				resultPanel.setVisible(hasSearch);
@@ -154,13 +153,13 @@ public class SearchPage extends Page
 				minCurrentValTextBox.setText("Minimum Land Value");
 				maxCurrentValTextBox.setText("Maximum Land Value");
 				postalCodeTextBox.setText("Postal Code");
-				
+
 				minCurrentValTextBox.selectAll();
 			}
 		});
 		return;
 	}
-	
+
 	private void createDetailResultButton()
 	{
 		detailResultButton.addClickHandler(new ClickHandler()
@@ -227,8 +226,7 @@ public class SearchPage extends Page
 
 				String minMessage = minCurrentValTextBox.getText();
 				if (!minMessage.isEmpty()
-						&& !minMessage
-								.matches("Minimum Land Value"))
+						&& !minMessage.matches("Minimum Land Value"))
 				{
 					if (!minMessage.matches("^[0-9\\.]{1,}$"))
 					{
@@ -246,8 +244,7 @@ public class SearchPage extends Page
 
 				String maxMessage = maxCurrentValTextBox.getText();
 				if (!maxMessage.isEmpty()
-						&& !maxMessage
-								.matches("Maximum Land Value"))
+						&& !maxMessage.matches("Maximum Land Value"))
 				{
 					if (!maxMessage.matches("^[0-9\\.]{1,}$"))
 					{
@@ -277,8 +274,7 @@ public class SearchPage extends Page
 
 				String postal = postalCodeTextBox.getText().toUpperCase()
 						.trim().replaceAll("\\s", "");
-				if (!postalCodeTextBox.getText().matches(
-						"Postal Code")
+				if (!postalCodeTextBox.getText().matches("Postal Code")
 						&& !postal.isEmpty())
 				{
 					if (!postal.matches("[A-Z][0-9][A-Z][0-9][A-Z][0-9]"))
@@ -295,8 +291,10 @@ public class SearchPage extends Page
 					}
 				}
 
-				if (!para.hasMaxCurrentLandValue() && !para.hasMinCurrentLandValue()
-						&& !para.hasPostalCode()){
+				if (!para.hasMaxCurrentLandValue()
+						&& !para.hasMinCurrentLandValue()
+						&& !para.hasPostalCode())
+				{
 					Window.alert("Please type in search parameter.");
 					minCurrentValTextBox.selectAll();
 					return;
@@ -351,9 +349,9 @@ public class SearchPage extends Page
 
 		resultPanel.setVisible(hasSearch);
 		resultTabPanel.clear();
-		//resultTabPanel.add(createMapVisualization(mapView), "Map");
-		resultTabPanel.add(new DataTablePanel(
-				(AbstractDataTable) resultView), "Result Table");
+		// resultTabPanel.add(createMapVisualization(mapView), "Map");
+		resultTabPanel.add(new DataTablePanel((AbstractDataTable) resultView),
+				"Result Table");
 		System.out.println("Data table created!");
 		resultTabPanel.selectTab(0);
 	}
@@ -383,18 +381,11 @@ public class SearchPage extends Page
 		});
 	}
 
-	private Widget createMapVisualization(DataView dataView)
-	{
-		MapVisualization map = new MapVisualization("400", "400");
-		map.draw(dataView);
-		return map.asWidget();
-	}
-
 	private void initializeFields()
 	{
 		for (int i = 0; i < resultDetailColumn.length; i++)
 			resultDetailColumn[i] = i;
-		
+
 		hasSearch = false;
 		hasCompare = false;
 		isDetail = false;
