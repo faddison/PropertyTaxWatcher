@@ -40,7 +40,7 @@ public class SearchPage extends Page
 			@Override
 			public void run()
 			{
-				PropertyTaxWatcher.initializePropertyTaxes();
+				//PropertyTaxWatcher.initializePropertyTaxes();
 				createSearchWidget();
 			}
 		}, Table.PACKAGE);
