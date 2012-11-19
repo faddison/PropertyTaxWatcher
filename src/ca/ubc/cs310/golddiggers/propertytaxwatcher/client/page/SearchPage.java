@@ -1,6 +1,7 @@
 package ca.ubc.cs310.golddiggers.propertytaxwatcher.client.page;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import ca.ubc.cs310.golddiggers.propertytaxwatcher.client.PropertyTaxWatcher;
 import ca.ubc.cs310.golddiggers.propertytaxwatcher.client.service.PropertyTaxSearchService;
@@ -8,12 +9,19 @@ import ca.ubc.cs310.golddiggers.propertytaxwatcher.client.service.PropertyTaxSea
 import ca.ubc.cs310.golddiggers.propertytaxwatcher.client.service.TweeterService;
 import ca.ubc.cs310.golddiggers.propertytaxwatcher.client.service.TweeterServiceAsync;
 import ca.ubc.cs310.golddiggers.propertytaxwatcher.client.widget.DataTablePanel;
+import ca.ubc.cs310.golddiggers.propertytaxwatcher.client.widget.GwtMapWidget;
 import ca.ubc.cs310.golddiggers.propertytaxwatcher.server.PropertyTax;
 import ca.ubc.cs310.golddiggers.propertytaxwatcher.server.SearchParameter;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.maps.client.MapWidget;
+import com.google.gwt.maps.client.Maps;
+import com.google.gwt.maps.client.geocode.Geocoder;
+import com.google.gwt.maps.client.geocode.LatLngCallback;
+import com.google.gwt.maps.client.geom.LatLng;
+import com.google.gwt.maps.client.overlay.Marker;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Button;
@@ -58,6 +66,9 @@ public class SearchPage extends Page
 	private boolean hasCompare;
 	private boolean isDetail;
 	private DataTable dataTable;
+	MapWidget map;
+	Geocoder geocoder;
+	private HashMap<String, LatLng> latLngMap = new HashMap<String, LatLng>();
 
 	// Server services
 	private static final TweeterServiceAsync tweeterService = GWT
@@ -74,8 +85,21 @@ public class SearchPage extends Page
 	public void loadPage()
 	{
 		super.loadPage();
-
 		initializeFields();
+		Maps.loadMapsApi("", "2", false, new Runnable() 
+		{
+
+			@Override
+			public void run()
+			{
+				System.out.println("creating map");
+				map = new MapWidget(LatLng.newInstance(49.2505, -123.1119), 13);
+			    map.setSize("600px", "400px");
+			    RootPanel.get().add(map);
+			    geocoder = new Geocoder();				
+			}
+		      
+		});		
 		this.runVisualizations();
 	}
 
@@ -93,6 +117,63 @@ public class SearchPage extends Page
 		}, Table.PACKAGE);
 	}
 
+	public void getLatLng(String zipcode)
+	{
+		final String address = zipcode;
+		geocoder.getLatLng(address, new LatLngCallback() {
+		      public void onFailure()
+		      {
+		        System.out.println(address + " not found");
+		      }
+
+		      public void onSuccess(LatLng point) 
+		      {
+		    	latLngMap.put(address, point);
+		        addMapMarker(point);
+		      }
+		    });
+	}
+
+	private void addMapMarker(LatLng point)
+	{
+		System.out.println("Added map marker");
+		map.addOverlay(new Marker(point));
+	}
+	
+	private int getZipcodeColumnIndex(DataTable dataTable)
+	{
+		for (int i = 0; i < dataTable.getNumberOfColumns(); i++)
+		{
+			if (dataTable.getColumnLabel(i).toLowerCase().contains("postal"))
+			{
+				return i;
+			}
+		}
+		return -1;
+	}
+	
+	private void addMapMarkers(DataTable dataTable)
+	{
+		addMapMarkers(DataView.create(dataTable));
+	}
+	
+	private void addMapMarkers(DataView mapView)
+	{
+		map.clearOverlays();
+		int zipIndex = getZipcodeColumnIndex(dataTable);
+		for (int i = 0; i < dataTable.getNumberOfRows(); i++)
+		{
+			String zipcode = dataTable.getValueString(i, zipIndex);
+			if (latLngMap.containsKey(zipcode))
+				addMapMarker(latLngMap.get(zipcode));
+			else if (zipcode == null || zipcode.trim().length() < 6)
+				System.out.println("Invalid zipcode format: "+zipcode);
+			else
+				getLatLng(zipcode);
+		}
+		
+	}
+	
 	private void createSearchWidget()
 	{
 
@@ -144,7 +225,7 @@ public class SearchPage extends Page
 			public void onClick(ClickEvent event)
 			{
 				initializeFields();
-
+				map.clearOverlays();
 				resultTabPanel.clear();
 				compareTabPanel.clear();
 				resultPanel.setVisible(hasSearch);
@@ -280,6 +361,9 @@ public class SearchPage extends Page
 		isDetail = false;
 		resultView.setColumns(resultSimpleColumn);
 		mapView.setColumns(new int[] { 12, 19 });
+		map.clearOverlays();
+		addMapMarkers(mapView);
+		//System.out.println("Should create map markers here.");
 
 		resultPanel.setVisible(hasSearch);
 		resultTabPanel.clear();
@@ -289,6 +373,8 @@ public class SearchPage extends Page
 		System.out.println("Data table created!");
 		resultTabPanel.selectTab(0);
 	}
+
+	
 
 	/**
 	 * Tweets a message on the golddigger310's Twitter account.
