@@ -5,7 +5,6 @@ import java.util.List;
 
 import ca.ubc.cs310.golddiggers.propertytaxwatcher.client.PropertyTaxWatcher;
 import ca.ubc.cs310.golddiggers.propertytaxwatcher.client.widget.DataTablePanel;
-import ca.ubc.cs310.golddiggers.propertytaxwatcher.client.widget.GwtMapWidget;
 import ca.ubc.cs310.golddiggers.propertytaxwatcher.server.PropertyTax;
 
 import com.google.gwt.user.client.ui.Label;
@@ -49,9 +48,6 @@ public class DataPage extends Page
 		tabPanel.clear();
 		mainPanel.clear();
 
-		GwtMapWidget gwtMap = new GwtMapWidget("");
-		RootPanel.get().add(gwtMap.getMapWidget());
-		
 		runVisualizations();
 		RootPanel.get().add(mainPanel);
 

@@ -1,4 +1,4 @@
-package ca.ubc.cs310.golddiggers.propertytaxwatcher.client.page;
+package ca.ubc.cs310.golddiggers.propertytaxwatcher.client.widget;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -13,22 +13,22 @@ import org.mockito.Mockito;
 import ca.ubc.cs310.golddiggers.propertytaxwatcher.server.SearchParameter;
 
 /**
- * SearchPageUnitTest class. This class is responsible for running JUnit tests
+ * SearchWidgetUnitTest class. This class is responsible for running JUnit tests
  * on the logic done in the SearchPage class.
  * 
  * @author Hubert Ngu
  */
-public class SearchPageUnitTest
+public class SearchWidgetUnitTest
 {
-	private static final Class<?> TEST_CLASS = SearchPage.class;
+	private static final Class<?> TEST_CLASS = SearchWidget.class;
 
-	private static SearchPage page;
+	private static SearchWidget widget;
 
 	@Before
 	public void setUp()
 	{
 		// We need to mock the class because we can't call on GWT.create().
-		page = Mockito.mock(SearchPage.class);
+		widget = Mockito.mock(SearchWidget.class);
 	}
 
 	@Test
@@ -40,7 +40,7 @@ public class SearchPageUnitTest
 		para.setPostalCode(new String());
 
 		Method m = getMethod("isParameterFilled", SearchParameter.class);
-		Boolean result = (Boolean) m.invoke(page, para);
+		Boolean result = (Boolean) m.invoke(widget, para);
 
 		assertTrue(result);
 	}
@@ -53,7 +53,7 @@ public class SearchPageUnitTest
 		para.setMaxCurrentLandValue(Integer.MAX_VALUE);
 
 		Method m = getMethod("isParameterFilled", SearchParameter.class);
-		Boolean result = (Boolean) m.invoke(page, para);
+		Boolean result = (Boolean) m.invoke(widget, para);
 
 		assertTrue(result);
 	}
@@ -65,7 +65,7 @@ public class SearchPageUnitTest
 		para.setMaxCurrentLandValue(Integer.MAX_VALUE);
 
 		Method m = getMethod("isParameterFilled", SearchParameter.class);
-		Boolean result = (Boolean) m.invoke(page, para);
+		Boolean result = (Boolean) m.invoke(widget, para);
 
 		assertTrue(result);
 	}
@@ -77,7 +77,7 @@ public class SearchPageUnitTest
 		SearchParameter para = new SearchParameter();
 
 		Method m = getMethod("isParameterFilled", SearchParameter.class);
-		Boolean result = (Boolean) m.invoke(page, para);
+		Boolean result = (Boolean) m.invoke(widget, para);
 
 		assertFalse(result);
 	}
@@ -88,7 +88,7 @@ public class SearchPageUnitTest
 		String decimal = "3.1417";
 
 		Method m = getMethod("isNumber", String.class);
-		Boolean result = (Boolean) m.invoke(page, decimal);
+		Boolean result = (Boolean) m.invoke(widget, decimal);
 
 		assertFalse(result);
 	}
@@ -99,7 +99,7 @@ public class SearchPageUnitTest
 		String notNumber = "I'm obviously not a number";
 
 		Method m = getMethod("isNumber", String.class);
-		Boolean result = (Boolean) m.invoke(page, notNumber);
+		Boolean result = (Boolean) m.invoke(widget, notNumber);
 
 		assertFalse(result);
 	}
@@ -110,7 +110,7 @@ public class SearchPageUnitTest
 		String number = "123414";
 
 		Method m = getMethod("isNumber", String.class);
-		Boolean result = (Boolean) m.invoke(page, number);
+		Boolean result = (Boolean) m.invoke(widget, number);
 
 		assertTrue(result);
 	}
@@ -119,10 +119,10 @@ public class SearchPageUnitTest
 	public void testMinSearchableDifferent() throws Exception
 	{
 		Field f = getField("MIN_LAND_VALUE_TEXT");
-		String message = (String) f.get(page) + "DIFFERENT";
+		String message = (String) f.get(widget) + "DIFFERENT";
 
 		Method m = getMethod("minSearchable", String.class);
-		Boolean result = (Boolean) m.invoke(page, message);
+		Boolean result = (Boolean) m.invoke(widget, message);
 
 		assertTrue(result);
 	}
@@ -131,10 +131,10 @@ public class SearchPageUnitTest
 	public void testMinSearchableSame() throws Exception
 	{
 		Field f = getField("MIN_LAND_VALUE_TEXT");
-		String message = (String) f.get(page);
+		String message = (String) f.get(widget);
 
 		Method m = getMethod("minSearchable", String.class);
-		Boolean result = (Boolean) m.invoke(page, message);
+		Boolean result = (Boolean) m.invoke(widget, message);
 
 		assertFalse(result);
 
@@ -144,10 +144,10 @@ public class SearchPageUnitTest
 	public void testMaxSearchableDifferent() throws Exception
 	{
 		Field f = getField("MAX_LAND_VALUE_TEXT");
-		String message = (String) f.get(page) + "DIFFERENT";
+		String message = (String) f.get(widget) + "DIFFERENT";
 
 		Method m = getMethod("maxSearchable", String.class);
-		Boolean result = (Boolean) m.invoke(page, message);
+		Boolean result = (Boolean) m.invoke(widget, message);
 
 		assertTrue(result);
 	}
@@ -156,10 +156,10 @@ public class SearchPageUnitTest
 	public void testMaxSearchableSame() throws Exception
 	{
 		Field f = getField("MAX_LAND_VALUE_TEXT");
-		String message = (String) f.get(page);
+		String message = (String) f.get(widget);
 
 		Method m = getMethod("maxSearchable", String.class);
-		Boolean result = (Boolean) m.invoke(page, message);
+		Boolean result = (Boolean) m.invoke(widget, message);
 
 		assertFalse(result);
 	}
@@ -171,7 +171,7 @@ public class SearchPageUnitTest
 		String condition = "message";
 
 		Method m = getMethod("equalsSearchable", String.class, String.class);
-		Boolean result = (Boolean) m.invoke(page, message, condition);
+		Boolean result = (Boolean) m.invoke(widget, message, condition);
 
 		assertFalse(result);
 	}
@@ -183,7 +183,7 @@ public class SearchPageUnitTest
 		String condition = "condition";
 
 		Method m = getMethod("equalsSearchable", String.class, String.class);
-		Boolean result = (Boolean) m.invoke(page, message, condition);
+		Boolean result = (Boolean) m.invoke(widget, message, condition);
 
 		assertTrue(result);
 	}
