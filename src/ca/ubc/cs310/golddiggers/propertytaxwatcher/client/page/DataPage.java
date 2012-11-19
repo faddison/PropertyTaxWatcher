@@ -4,9 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ca.ubc.cs310.golddiggers.propertytaxwatcher.client.PropertyTaxWatcher;
+import ca.ubc.cs310.golddiggers.propertytaxwatcher.client.service.RemoteDataService;
+import ca.ubc.cs310.golddiggers.propertytaxwatcher.client.service.RemoteDataServiceAsync;
 import ca.ubc.cs310.golddiggers.propertytaxwatcher.client.widget.DataTablePanel;
 import ca.ubc.cs310.golddiggers.propertytaxwatcher.server.PropertyTax;
 
+import com.google.gwt.core.client.GWT;
+import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.TabPanel;
@@ -34,11 +38,13 @@ public class DataPage extends Page
 	private List<PropertyTax> propertyTaxes = new ArrayList<PropertyTax>();
 	private final TabPanel tabPanel = new TabPanel();
 	private VerticalPanel mainPanel = new VerticalPanel();
+	
+	private static final RemoteDataServiceAsync dataService = GWT.create(RemoteDataService.class);
 
 	public DataPage()
 	{
 		super("Data");
-		PropertyTaxWatcher.initializeLocalPropertyTaxes(this.propertyTaxes);
+		//PropertyTaxWatcher.initializeLocalPropertyTaxes(this.propertyTaxes);
 	}
 
 	@Override
@@ -48,6 +54,8 @@ public class DataPage extends Page
 		tabPanel.clear();
 		mainPanel.clear();
 
+		//runVisualizations();
+		getDataFromRemote();
 		runVisualizations();
 		RootPanel.get().add(mainPanel);
 
@@ -101,5 +109,23 @@ public class DataPage extends Page
 		GeoMap map = new GeoMap();
 		map.draw(dataView, options);
 		return map.asWidget();
+	}
+	private void getDataFromRemote() {
+		
+		dataService.getData(new AsyncCallback<ArrayList<PropertyTax>>()
+				{
+					public void onFailure(Throwable error) {
+						GWT.log(error.getMessage());
+					}
+					
+					public void onSuccess(ArrayList<PropertyTax> result)
+					{
+						for (int i = 0; i < result.size(); i ++) {
+							propertyTaxes.add(result.get(i));
+						}
+						GWT.log("Data Access Succeed!");
+					}
+				});
+	
 	}
 }

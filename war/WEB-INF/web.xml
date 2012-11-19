@@ -17,6 +17,16 @@
         <servlet-name>RemoteApi</servlet-name>
         <url-pattern>/remote_api</url-pattern>
     </servlet-mapping>
+    
+  <servlet>
+    <servlet-name>RemoteDataService</servlet-name>
+    <servlet-class>ca.ubc.cs310.golddiggers.propertytaxwatcher.server.RemoteDataServiceImpl</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>RemoteDataService</servlet-name>
+    <url-pattern>/propertytaxwatcher/RemoteData</url-pattern>
+  </servlet-mapping>
 
   <servlet>
     <servlet-name>LoginService</servlet-name>
