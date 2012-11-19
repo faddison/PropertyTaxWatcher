@@ -1,7 +1,9 @@
 package ca.ubc.cs310.golddiggers.propertytaxwatcher.client.page;
 
+import ca.ubc.cs310.golddiggers.propertytaxwatcher.client.widget.GwtMapWidget;
 import ca.ubc.cs310.golddiggers.propertytaxwatcher.client.widget.PageMenu;
 
+import com.google.gwt.maps.client.MapWidget;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.RootPanel;
 
@@ -38,6 +40,7 @@ public abstract class Page
 		root.add(new HTML("<hr>"));
 	}
 
+	
 	public String getName()
 	{
 		return this.name;
