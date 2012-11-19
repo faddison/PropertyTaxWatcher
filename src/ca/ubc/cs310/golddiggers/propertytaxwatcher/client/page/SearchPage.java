@@ -46,6 +46,9 @@ import com.google.gwt.visualization.client.visualizations.Table;
  */
 public class SearchPage extends Page
 {
+	private static final String MIN_LAND_VALUE_TEXT = "Minimum Land Value";
+	private static final String MAX_LAND_VALUE_TEXT = "Maximum Land Value";
+
 	// Search fields.
 	private VerticalPanel searchPanel = new VerticalPanel();
 	private TextBox minCurrentValTextBox = new TextBox();
@@ -71,21 +74,23 @@ public class SearchPage extends Page
 	private HashMap<String, LatLng> latLngMap = new HashMap<String, LatLng>();
 
 	// Server services
-	private static final TweeterServiceAsync tweeterService = GWT
-			.create(TweeterService.class);
-	private static final PropertyTaxSearchServiceAsync propertyTaxSearchService = GWT
-			.create(PropertyTaxSearchService.class);
+	private static TweeterServiceAsync tweeterService;
+	private static PropertyTaxSearchServiceAsync propertyTaxSearchService;
 
 	public SearchPage()
 	{
 		super("Search");
+		tweeterService = GWT.create(TweeterService.class);
+		propertyTaxSearchService = GWT.create(PropertyTaxSearchService.class);
 	}
 
 	@Override
 	public void loadPage()
 	{
 		super.loadPage();
-		initializeFields();
+
+		this.initializeFields();
+		
 		Maps.loadMapsApi("", "2", false, new Runnable() 
 		{
 
@@ -99,8 +104,20 @@ public class SearchPage extends Page
 			    geocoder = new Geocoder();				
 			}
 		      
-		});		
+		});
+		
 		this.runVisualizations();
+	}
+	
+	private void initializeFields()
+	{
+		for (int i = 0; i < resultDetailColumn.length; i++)
+			resultDetailColumn[i] = i;
+
+		hasSearch = false;
+		hasCompare = false;
+		isDetail = false;
+		dataTable = null;
 	}
 
 	private void runVisualizations()
@@ -342,7 +359,6 @@ public class SearchPage extends Page
 
 	private void displayResult(ArrayList<PropertyTax> result)
 	{
-		System.out.println("Displaying!");
 		DataTable resultDataTable = DataTable.create();
 		resultDataTable = PropertyTaxWatcher
 				.initializeDataTable(resultDataTable);
@@ -370,7 +386,6 @@ public class SearchPage extends Page
 		// resultTabPanel.add(createMapVisualization(mapView), "Map");
 		resultTabPanel.add(new DataTablePanel((AbstractDataTable) resultView),
 				"Result Table");
-		System.out.println("Data table created!");
 		resultTabPanel.selectTab(0);
 	}
 
@@ -401,18 +416,8 @@ public class SearchPage extends Page
 		});
 	}
 
-	private void initializeFields()
+	private void search(SearchParameter para)
 	{
-		for (int i = 0; i < resultDetailColumn.length; i++)
-			resultDetailColumn[i] = i;
-
-		hasSearch = false;
-		hasCompare = false;
-		isDetail = false;
-		dataTable = null;
-	}
-	
-	private void search(SearchParameter para) {
 		propertyTaxSearchService.searchProperty(para,
 				new AsyncCallback<ArrayList<PropertyTax>>()
 				{
@@ -511,17 +516,24 @@ public class SearchPage extends Page
 
 	private boolean isNumber(String number)
 	{
-		return number.matches("^[0-9\\.]{1,}$");
+		try
+		{
+			Integer.parseInt(number);
+			return true;
+		} catch (NumberFormatException e)
+		{
+			return false;
+		}
 	}
 
 	private boolean minSearchable(String message)
 	{
-		return equalsSearchable(message, "Minimum Land Value");
+		return equalsSearchable(message, MIN_LAND_VALUE_TEXT);
 	}
 
 	private boolean maxSearchable(String message)
 	{
-		return equalsSearchable(message, "Maximum Land Value");
+		return equalsSearchable(message, MAX_LAND_VALUE_TEXT);
 	}
 
 	private boolean equalsSearchable(String message, String condition)
