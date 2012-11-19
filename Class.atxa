@@ -1,0 +1,455 @@
+<,fastslip@gmail.com> <http://www.architexa.com/rdf/core#creator> "true" .
+
+@prefix atxa-rse-eclipse: <http://www.architexa.com/rdf/rse-eclipse#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix atxa-jdt-wkspc: <http://www.architexa.com/rdf/jdt-wkspc#> .
+@prefix atxa-core: <http://www.architexa.com/rdf/core#> .
+@prefix atxa: <http://www.architexa.com/rdf/> .
+@prefix atxa-jdt: <http://www.architexa.com/rdf/jdt#> .
+
+<http://www.architexa.com/rdf/rse-eclipse#Class.atxa> a atxa-core:reloFile .
+
+atxa:DetailNode atxa-core:detailLevel "0" .
+
+atxa-core:docRoot atxa-core:browseModel "com.architexa.diagrams.relo.jdt/com.architexa.diagrams.relo.jdt.browse.ClassStrucBrowseModel" ;
+	atxa-core:contains _:node17cbdbj8dx17850 .
+
+_:node17cbdbj8dx17850 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#ca.ubc.cs310.golddiggers.propertytaxwatcher.client.service> ;
+	atxa-core:posX "811" ;
+	atxa-core:posY "165" .
+
+<http://www.architexa.com/rdf/jdt-wkspc#ca.ubc.cs310.golddiggers.propertytaxwatcher.client.service> atxa-core:contains <http://www.architexa.com/rdf/jdt-wkspc#ca.ubc.cs310.golddiggers.propertytaxwatcher.client.service$LoginService> , <http://www.architexa.com/rdf/jdt-wkspc#ca.ubc.cs310.golddiggers.propertytaxwatcher.client.service$LoginServiceAsync> , <http://www.architexa.com/rdf/jdt-wkspc#ca.ubc.cs310.golddiggers.propertytaxwatcher.client.service$TweeterServiceAsync> , <http://www.architexa.com/rdf/jdt-wkspc#ca.ubc.cs310.golddiggers.propertytaxwatcher.client.service$PropertyTaxServiceAsync> , <http://www.architexa.com/rdf/jdt-wkspc#ca.ubc.cs310.golddiggers.propertytaxwatcher.client.service$PropertyTaxSearchServiceAsync> , <http://www.architexa.com/rdf/jdt-wkspc#ca.ubc.cs310.golddiggers.propertytaxwatcher.client.service$PropertyTaxSearchService> , <http://www.architexa.com/rdf/jdt-wkspc#ca.ubc.cs310.golddiggers.propertytaxwatcher.client.service$PropertyTaxService> , <http://www.architexa.com/rdf/jdt-wkspc#ca.ubc.cs310.golddiggers.propertytaxwatcher.client.service$TweeterService> .
+
+_:node17cbdbj8dx17850 atxa-core:contains _:node17cbdbj8dx17851 .
+
+_:node17cbdbj8dx17851 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#ca.ubc.cs310.golddiggers.propertytaxwatcher.client.service$LoginService> ;
+	atxa-core:posX "825" ;
+	atxa-core:posY "194" .
+
+_:node17cbdbj8dx17850 atxa-core:contains _:node17cbdbj8dx17852 .
+
+_:node17cbdbj8dx17852 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#ca.ubc.cs310.golddiggers.propertytaxwatcher.client.service$LoginServiceAsync> ;
+	atxa-core:posX "963" ;
+	atxa-core:posY "194" .
+
+_:node17cbdbj8dx17850 atxa-core:contains _:node17cbdbj8dx17853 .
+
+_:node17cbdbj8dx17853 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#ca.ubc.cs310.golddiggers.propertytaxwatcher.client.service$TweeterServiceAsync> ;
+	atxa-core:posX "1143" ;
+	atxa-core:posY "194" .
+
+_:node17cbdbj8dx17850 atxa-core:contains _:node17cbdbj8dx17854 .
+
+_:node17cbdbj8dx17854 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#ca.ubc.cs310.golddiggers.propertytaxwatcher.client.service$PropertyTaxServiceAsync> ;
+	atxa-core:posX "1254" ;
+	atxa-core:posY "252" .
+
+_:node17cbdbj8dx17850 atxa-core:contains _:node17cbdbj8dx17855 .
+
+_:node17cbdbj8dx17855 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#ca.ubc.cs310.golddiggers.propertytaxwatcher.client.service$PropertyTaxSearchServiceAsync> ;
+	atxa-core:posX "825" ;
+	atxa-core:posY "252" .
+
+_:node17cbdbj8dx17850 atxa-core:contains _:node17cbdbj8dx17856 .
+
+_:node17cbdbj8dx17856 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#ca.ubc.cs310.golddiggers.propertytaxwatcher.client.service$PropertyTaxSearchService> ;
+	atxa-core:posX "817" ;
+	atxa-core:posY "313" .
+
+_:node17cbdbj8dx17850 atxa-core:contains _:node17cbdbj8dx17857 .
+
+_:node17cbdbj8dx17857 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#ca.ubc.cs310.golddiggers.propertytaxwatcher.client.service$PropertyTaxService> ;
+	atxa-core:posX "1285" ;
+	atxa-core:posY "319" .
+
+_:node17cbdbj8dx17850 atxa-core:contains _:node17cbdbj8dx17858 .
+
+_:node17cbdbj8dx17858 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#ca.ubc.cs310.golddiggers.propertytaxwatcher.client.service$TweeterService> ;
+	atxa-core:posX "1090" ;
+	atxa-core:posY "308" .
+
+atxa-core:docRoot atxa-core:contains _:node17cbdbj8dx17859 .
+
+_:node17cbdbj8dx17859 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#ca.ubc.cs310.golddiggers.propertytaxwatcher.server> ;
+	atxa-core:posX "795" ;
+	atxa-core:posY "586" .
+
+<http://www.architexa.com/rdf/jdt-wkspc#ca.ubc.cs310.golddiggers.propertytaxwatcher.server> atxa-core:contains <http://www.architexa.com/rdf/jdt-wkspc#ca.ubc.cs310.golddiggers.propertytaxwatcher.server$PropertyTaxSearchServiceImpl> , <http://www.architexa.com/rdf/jdt-wkspc#ca.ubc.cs310.golddiggers.propertytaxwatcher.server$TweeterServiceImpl> , <http://www.architexa.com/rdf/jdt-wkspc#ca.ubc.cs310.golddiggers.propertytaxwatcher.server$PropertyTaxServiceImpl> .
+
+_:node17cbdbj8dx17859 atxa-core:contains _:node17cbdbj8dx17860 .
+
+_:node17cbdbj8dx17860 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#ca.ubc.cs310.golddiggers.propertytaxwatcher.server$PropertyTaxSearchServiceImpl> ;
+	atxa-core:posX "801" ;
+	atxa-core:posY "615" .
+
+_:node17cbdbj8dx1843 a atxa-core:link ;
+	atxa-core:model atxa-jdt:inherits ;
+	rdf:subject _:node17cbdbj8dx17860 ;
+	rdf:object _:node17cbdbj8dx17856 ;
+	atxa-core:bendpoint _:node17cbdbj8dx21316 .
+
+_:node17cbdbj8dx21316 atxa-core:bpLocation "927,376" ;
+	atxa-core:bpIndex "0" .
+
+_:node17cbdbj8dx17859 atxa-core:contains _:node17cbdbj8dx17862 .
+
+_:node17cbdbj8dx17862 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#ca.ubc.cs310.golddiggers.propertytaxwatcher.server$TweeterServiceImpl> ;
+	atxa-core:posX "1074" ;
+	atxa-core:posY "651" .
+
+_:node17cbdbj8dx1631 a atxa-core:link ;
+	atxa-core:model atxa-jdt:inherits ;
+	rdf:subject _:node17cbdbj8dx17862 ;
+	rdf:object _:node17cbdbj8dx17858 ;
+	atxa-core:bendpoint _:node17cbdbj8dx21317 .
+
+_:node17cbdbj8dx21317 atxa-core:bpLocation "1163,371" ;
+	atxa-core:bpIndex "0" .
+
+_:node17cbdbj8dx7113 a atxa-core:link ;
+	atxa-core:model atxa-jdt:inherits ;
+	rdf:subject _:node17cbdbj8dx17862 ;
+	rdf:object _:node17cbdbj8dx17864 ;
+	atxa-core:bendpoint _:node17cbdbj8dx21318 .
+
+_:node17cbdbj8dx21318 atxa-core:bpLocation "1163,563" ;
+	atxa-core:bpIndex "0" .
+
+_:node17cbdbj8dx7113 atxa-core:bendpoint _:node17cbdbj8dx21319 .
+
+_:node17cbdbj8dx21319 atxa-core:bpLocation "502,563" ;
+	atxa-core:bpIndex "1" .
+
+_:node17cbdbj8dx17859 atxa-core:contains _:node17cbdbj8dx17867 .
+
+_:node17cbdbj8dx17867 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#ca.ubc.cs310.golddiggers.propertytaxwatcher.server$PropertyTaxServiceImpl> ;
+	atxa-core:posX "1269" ;
+	atxa-core:posY "639" .
+
+_:node17cbdbj8dx1647 a atxa-core:link ;
+	atxa-core:model atxa-jdt:inherits ;
+	rdf:subject _:node17cbdbj8dx17867 ;
+	rdf:object _:node17cbdbj8dx17857 ;
+	atxa-core:bendpoint _:node17cbdbj8dx21320 .
+
+_:node17cbdbj8dx21320 atxa-core:bpLocation "1372,382" ;
+	atxa-core:bpIndex "0" .
+
+_:node17cbdbj8dx7112 a atxa-core:link ;
+	atxa-core:model atxa-jdt:inherits ;
+	rdf:subject _:node17cbdbj8dx17867 ;
+	rdf:object _:node17cbdbj8dx17869 ;
+	atxa-core:bendpoint _:node17cbdbj8dx21321 .
+
+_:node17cbdbj8dx21321 atxa-core:bpLocation "1372,481" ;
+	atxa-core:bpIndex "0" .
+
+_:node17cbdbj8dx7112 atxa-core:bendpoint _:node17cbdbj8dx21322 .
+
+_:node17cbdbj8dx21322 atxa-core:bpLocation "499,481" ;
+	atxa-core:bpIndex "1" .
+
+atxa-core:docRoot atxa-core:contains _:node17cbdbj8dx17872 .
+
+_:node17cbdbj8dx17872 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#ca.ubc.cs310.golddiggers.propertytaxwatcher.client.page> ;
+	atxa-core:posX "-204" ;
+	atxa-core:posY "43" .
+
+<http://www.architexa.com/rdf/jdt-wkspc#ca.ubc.cs310.golddiggers.propertytaxwatcher.client.page> atxa-core:contains <http://www.architexa.com/rdf/jdt-wkspc#ca.ubc.cs310.golddiggers.propertytaxwatcher.client.page$HomePage> , <http://www.architexa.com/rdf/jdt-wkspc#ca.ubc.cs310.golddiggers.propertytaxwatcher.client.page$Page> , <http://www.architexa.com/rdf/jdt-wkspc#ca.ubc.cs310.golddiggers.propertytaxwatcher.client.page$ComparePage> , <http://www.architexa.com/rdf/jdt-wkspc#ca.ubc.cs310.golddiggers.propertytaxwatcher.client.page$AboutPage> , <http://www.architexa.com/rdf/jdt-wkspc#ca.ubc.cs310.golddiggers.propertytaxwatcher.client.page$DataPage> , <http://www.architexa.com/rdf/jdt-wkspc#ca.ubc.cs310.golddiggers.propertytaxwatcher.client.page$LoginPage> , <http://www.architexa.com/rdf/jdt-wkspc#ca.ubc.cs310.golddiggers.propertytaxwatcher.client.page$SearchPage> .
+
+_:node17cbdbj8dx17872 atxa-core:contains _:node17cbdbj8dx17889 .
+
+_:node17cbdbj8dx17889 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#ca.ubc.cs310.golddiggers.propertytaxwatcher.client.page$HomePage> ;
+	atxa-core:posX "-198" ;
+	atxa-core:posY "233" .
+
+_:node17cbdbj8dx2108 a atxa-core:link ;
+	atxa-core:model atxa-jdt:inherits ;
+	rdf:subject _:node17cbdbj8dx17889 ;
+	rdf:object _:node17cbdbj8dx17873 ;
+	atxa-core:bendpoint _:node17cbdbj8dx21323 .
+
+_:node17cbdbj8dx21323 atxa-core:bpLocation "-140,135" ;
+	atxa-core:bpIndex "0" .
+
+_:node17cbdbj8dx2108 atxa-core:bendpoint _:node17cbdbj8dx21324 .
+
+_:node17cbdbj8dx21324 atxa-core:bpLocation "225,135" ;
+	atxa-core:bpIndex "1" .
+
+_:node17cbdbj8dx17872 atxa-core:contains _:node17cbdbj8dx17873 .
+
+_:node17cbdbj8dx17873 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#ca.ubc.cs310.golddiggers.propertytaxwatcher.client.page$Page> ;
+	atxa-core:posX "188" ;
+	atxa-core:posY "72" .
+
+_:node17cbdbj8dx17872 atxa-core:contains _:node17cbdbj8dx17874 .
+
+_:node17cbdbj8dx17874 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#ca.ubc.cs310.golddiggers.propertytaxwatcher.client.page$ComparePage> ;
+	atxa-core:posX "478" ;
+	atxa-core:posY "238" .
+
+_:node17cbdbj8dx2110 a atxa-core:link ;
+	atxa-core:model atxa-jdt:inherits ;
+	rdf:subject _:node17cbdbj8dx17874 ;
+	rdf:object _:node17cbdbj8dx17873 ;
+	atxa-core:bendpoint _:node17cbdbj8dx21325 .
+
+_:node17cbdbj8dx21325 atxa-core:bpLocation "546,135" ;
+	atxa-core:bpIndex "0" .
+
+_:node17cbdbj8dx2110 atxa-core:bendpoint _:node17cbdbj8dx21326 .
+
+_:node17cbdbj8dx21326 atxa-core:bpLocation "225,135" ;
+	atxa-core:bpIndex "1" .
+
+_:node17cbdbj8dx17872 atxa-core:contains _:node17cbdbj8dx17877 .
+
+_:node17cbdbj8dx17877 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#ca.ubc.cs310.golddiggers.propertytaxwatcher.client.page$AboutPage> ;
+	atxa-core:posX "336" ;
+	atxa-core:posY "236" .
+
+_:node17cbdbj8dx2112 a atxa-core:link ;
+	atxa-core:model atxa-jdt:inherits ;
+	rdf:subject _:node17cbdbj8dx17877 ;
+	rdf:object _:node17cbdbj8dx17873 ;
+	atxa-core:bendpoint _:node17cbdbj8dx21327 .
+
+_:node17cbdbj8dx21327 atxa-core:bpLocation "395,135" ;
+	atxa-core:bpIndex "0" .
+
+_:node17cbdbj8dx2112 atxa-core:bendpoint _:node17cbdbj8dx21328 .
+
+_:node17cbdbj8dx21328 atxa-core:bpLocation "225,135" ;
+	atxa-core:bpIndex "1" .
+
+_:node17cbdbj8dx17872 atxa-core:contains _:node17cbdbj8dx17880 .
+
+_:node17cbdbj8dx17880 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#ca.ubc.cs310.golddiggers.propertytaxwatcher.client.page$DataPage> ;
+	atxa-core:posX "208" ;
+	atxa-core:posY "237" .
+
+_:node17cbdbj8dx2111 a atxa-core:link ;
+	atxa-core:model atxa-jdt:inherits ;
+	rdf:subject _:node17cbdbj8dx17880 ;
+	rdf:object _:node17cbdbj8dx17873 ;
+	atxa-core:bendpoint _:node17cbdbj8dx21329 .
+
+_:node17cbdbj8dx21329 atxa-core:bpLocation "261,135" ;
+	atxa-core:bpIndex "0" .
+
+_:node17cbdbj8dx2111 atxa-core:bendpoint _:node17cbdbj8dx21330 .
+
+_:node17cbdbj8dx21330 atxa-core:bpLocation "225,135" ;
+	atxa-core:bpIndex "1" .
+
+_:node17cbdbj8dx17872 atxa-core:contains _:node17cbdbj8dx17883 .
+
+_:node17cbdbj8dx17883 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#ca.ubc.cs310.golddiggers.propertytaxwatcher.client.page$LoginPage> ;
+	atxa-core:posX "69" ;
+	atxa-core:posY "236" .
+
+_:node17cbdbj8dx2113 a atxa-core:link ;
+	atxa-core:model atxa-jdt:inherits ;
+	rdf:subject _:node17cbdbj8dx17883 ;
+	rdf:object _:node17cbdbj8dx17873 ;
+	atxa-core:bendpoint _:node17cbdbj8dx21331 .
+
+_:node17cbdbj8dx21331 atxa-core:bpLocation "125,135" ;
+	atxa-core:bpIndex "0" .
+
+_:node17cbdbj8dx2113 atxa-core:bendpoint _:node17cbdbj8dx21332 .
+
+_:node17cbdbj8dx21332 atxa-core:bpLocation "225,135" ;
+	atxa-core:bpIndex "1" .
+
+_:node17cbdbj8dx17872 atxa-core:contains _:node17cbdbj8dx17886 .
+
+_:node17cbdbj8dx17886 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#ca.ubc.cs310.golddiggers.propertytaxwatcher.client.page$SearchPage> ;
+	atxa-core:posX "-73" ;
+	atxa-core:posY "235" .
+
+_:node17cbdbj8dx2109 a atxa-core:link ;
+	atxa-core:model atxa-jdt:inherits ;
+	rdf:subject _:node17cbdbj8dx17886 ;
+	rdf:object _:node17cbdbj8dx17873 ;
+	atxa-core:bendpoint _:node17cbdbj8dx21333 .
+
+_:node17cbdbj8dx21333 atxa-core:bpLocation "-13,135" ;
+	atxa-core:bpIndex "0" .
+
+_:node17cbdbj8dx2109 atxa-core:bendpoint _:node17cbdbj8dx21334 .
+
+_:node17cbdbj8dx21334 atxa-core:bpLocation "225,135" ;
+	atxa-core:bpIndex "1" .
+
+atxa-core:docRoot atxa-core:contains _:node17cbdbj8dx17892 .
+
+_:node17cbdbj8dx17892 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#ca.ubc.cs310.golddiggers.propertytaxwatcher.client> ;
+	atxa-core:posX "-122" ;
+	atxa-core:posY "389" .
+
+<http://www.architexa.com/rdf/jdt-wkspc#ca.ubc.cs310.golddiggers.propertytaxwatcher.client> atxa-core:contains <http://www.architexa.com/rdf/jdt-wkspc#ca.ubc.cs310.golddiggers.propertytaxwatcher.client$PropertyTaxService> , <http://www.architexa.com/rdf/jdt-wkspc#ca.ubc.cs310.golddiggers.propertytaxwatcher.client$PropertyTaxSearchServiceAsync> , <http://www.architexa.com/rdf/jdt-wkspc#ca.ubc.cs310.golddiggers.propertytaxwatcher.client$PropertyTaxSearchService> , <http://www.architexa.com/rdf/jdt-wkspc#ca.ubc.cs310.golddiggers.propertytaxwatcher.client$TweeterServiceAsync> , <http://www.architexa.com/rdf/jdt-wkspc#ca.ubc.cs310.golddiggers.propertytaxwatcher.client$PropertyTaxServiceAsync> , <http://www.architexa.com/rdf/jdt-wkspc#ca.ubc.cs310.golddiggers.propertytaxwatcher.client$PropertyTaxWatcher> , <http://www.architexa.com/rdf/jdt-wkspc#ca.ubc.cs310.golddiggers.propertytaxwatcher.client$TweeterService> , <http://www.architexa.com/rdf/jdt-wkspc#ca.ubc.cs310.golddiggers.propertytaxwatcher.client$LoginServiceAsync> , <http://www.architexa.com/rdf/jdt-wkspc#ca.ubc.cs310.golddiggers.propertytaxwatcher.client$LoginService> , <http://www.architexa.com/rdf/jdt-wkspc#ca.ubc.cs310.golddiggers.propertytaxwatcher.client$LoginInfo> .
+
+_:node17cbdbj8dx17892 atxa-core:contains _:node17cbdbj8dx17869 .
+
+_:node17cbdbj8dx17869 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#ca.ubc.cs310.golddiggers.propertytaxwatcher.client$PropertyTaxService> ;
+	atxa-core:posX "412" ;
+	atxa-core:posY "418" .
+
+_:node17cbdbj8dx17892 atxa-core:contains _:node17cbdbj8dx17893 .
+
+_:node17cbdbj8dx17893 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#ca.ubc.cs310.golddiggers.propertytaxwatcher.client$PropertyTaxSearchServiceAsync> ;
+	atxa-core:posX "326" ;
+	atxa-core:posY "594" .
+
+_:node17cbdbj8dx17892 atxa-core:contains _:node17cbdbj8dx17894 .
+
+_:node17cbdbj8dx17894 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#ca.ubc.cs310.golddiggers.propertytaxwatcher.client$PropertyTaxSearchService> ;
+	atxa-core:posX "91" ;
+	atxa-core:posY "597" .
+
+_:node17cbdbj8dx17892 atxa-core:contains _:node17cbdbj8dx17895 .
+
+_:node17cbdbj8dx17895 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#ca.ubc.cs310.golddiggers.propertytaxwatcher.client$TweeterServiceAsync> ;
+	atxa-core:posX "-116" ;
+	atxa-core:posY "598" .
+
+_:node17cbdbj8dx17892 atxa-core:contains _:node17cbdbj8dx17896 .
+
+_:node17cbdbj8dx17896 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#ca.ubc.cs310.golddiggers.propertytaxwatcher.client$PropertyTaxServiceAsync> ;
+	atxa-core:posX "-11" ;
+	atxa-core:posY "500" .
+
+_:node17cbdbj8dx17892 atxa-core:contains _:node17cbdbj8dx17897 .
+
+_:node17cbdbj8dx17897 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#ca.ubc.cs310.golddiggers.propertytaxwatcher.client$PropertyTaxWatcher> ;
+	atxa-core:posX "226" ;
+	atxa-core:posY "501" .
+
+_:node17cbdbj8dx17892 atxa-core:contains _:node17cbdbj8dx17864 .
+
+_:node17cbdbj8dx17864 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#ca.ubc.cs310.golddiggers.propertytaxwatcher.client$TweeterService> ;
+	atxa-core:posX "429" ;
+	atxa-core:posY "500" .
+
+_:node17cbdbj8dx17892 atxa-core:contains _:node17cbdbj8dx17898 .
+
+_:node17cbdbj8dx17898 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#ca.ubc.cs310.golddiggers.propertytaxwatcher.client$LoginServiceAsync> ;
+	atxa-core:posX "193" ;
+	atxa-core:posY "422" .
+
+_:node17cbdbj8dx17892 atxa-core:contains _:node17cbdbj8dx17899 .
+
+_:node17cbdbj8dx17899 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#ca.ubc.cs310.golddiggers.propertytaxwatcher.client$LoginService> ;
+	atxa-core:posX "34" ;
+	atxa-core:posY "423" .
+
+_:node17cbdbj8dx17892 atxa-core:contains _:node17cbdbj8dx17900 .
+
+_:node17cbdbj8dx17900 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#ca.ubc.cs310.golddiggers.propertytaxwatcher.client$LoginInfo> ;
+	atxa-core:posX "-112" ;
+	atxa-core:posY "424" .
+
+atxa-core:docRoot atxa-core:contains _:node17cbdbj8dx21335 .
+
+_:node17cbdbj8dx21335 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#ca.ubc.cs310.golddiggers.propertytaxwatcher.server.social.twitter> ;
+	atxa-core:posX "-44" ;
+	atxa-core:posY "715" .
+
+<http://www.architexa.com/rdf/jdt-wkspc#ca.ubc.cs310.golddiggers.propertytaxwatcher.server.social.twitter> atxa-core:contains <http://www.architexa.com/rdf/jdt-wkspc#ca.ubc.cs310.golddiggers.propertytaxwatcher.server.social.twitter$Tweeter> .
+
+_:node17cbdbj8dx21335 atxa-core:contains _:node17cbdbj8dx21336 .
+
+_:node17cbdbj8dx21336 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#ca.ubc.cs310.golddiggers.propertytaxwatcher.server.social.twitter$Tweeter> ;
+	atxa-core:posX "-38" ;
+	atxa-core:posY "744" .
+
+atxa-core:docRoot atxa-core:contains _:node17cbdbj8dx21337 .
+
+_:node17cbdbj8dx21337 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#ca.ubc.cs310.golddiggers.propertytaxwatcher.client.widget> ;
+	atxa-core:posX "131" ;
+	atxa-core:posY "709" .
+
+<http://www.architexa.com/rdf/jdt-wkspc#ca.ubc.cs310.golddiggers.propertytaxwatcher.client.widget> atxa-core:contains <http://www.architexa.com/rdf/jdt-wkspc#ca.ubc.cs310.golddiggers.propertytaxwatcher.client.widget$DataTablePanel> , <http://www.architexa.com/rdf/jdt-wkspc#ca.ubc.cs310.golddiggers.propertytaxwatcher.client.widget$PageMenu> , <http://www.architexa.com/rdf/jdt-wkspc#ca.ubc.cs310.golddiggers.propertytaxwatcher.client.widget$GooglePlusOneWidget> , <http://www.architexa.com/rdf/jdt-wkspc#ca.ubc.cs310.golddiggers.propertytaxwatcher.client.widget$TwitterWidget> , <http://www.architexa.com/rdf/jdt-wkspc#ca.ubc.cs310.golddiggers.propertytaxwatcher.client.widget$GwtMapWidget> .
+
+_:node17cbdbj8dx21337 atxa-core:contains _:node17cbdbj8dx21338 .
+
+_:node17cbdbj8dx21338 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#ca.ubc.cs310.golddiggers.propertytaxwatcher.client.widget$DataTablePanel> ;
+	atxa-core:posX "422" ;
+	atxa-core:posY "738" .
+
+_:node17cbdbj8dx21337 atxa-core:contains _:node17cbdbj8dx21339 .
+
+_:node17cbdbj8dx21339 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#ca.ubc.cs310.golddiggers.propertytaxwatcher.client.widget$PageMenu> ;
+	atxa-core:posX "137" ;
+	atxa-core:posY "738" .
+
+_:node17cbdbj8dx21337 atxa-core:contains _:node17cbdbj8dx21340 .
+
+_:node17cbdbj8dx21340 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#ca.ubc.cs310.golddiggers.propertytaxwatcher.client.widget$GooglePlusOneWidget> ;
+	atxa-core:posX "165" ;
+	atxa-core:posY "849" .
+
+_:node17cbdbj8dx21337 atxa-core:contains _:node17cbdbj8dx21341 .
+
+_:node17cbdbj8dx21341 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#ca.ubc.cs310.golddiggers.propertytaxwatcher.client.widget$TwitterWidget> ;
+	atxa-core:posX "267" ;
+	atxa-core:posY "738" .
+
+_:node17cbdbj8dx21337 atxa-core:contains _:node17cbdbj8dx21342 .
+
+_:node17cbdbj8dx21342 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#ca.ubc.cs310.golddiggers.propertytaxwatcher.client.widget$GwtMapWidget> ;
+	atxa-core:posX "421" ;
+	atxa-core:posY "849" .
+
+@prefix atxa-rse-eclipse: <http://www.architexa.com/rdf/rse-eclipse#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix atxa-jdt-wkspc: <http://www.architexa.com/rdf/jdt-wkspc#> .
+@prefix atxa-core: <http://www.architexa.com/rdf/core#> .
+@prefix atxa: <http://www.architexa.com/rdf/> .
+@prefix atxa-jdt: <http://www.architexa.com/rdf/jdt#> .
+
+<http://www.architexa.com/rdf/rse-eclipse#Class.atxa> a atxa-core:reloFile ;
+	atxa-core:contains _:node17cbdbj8dx17851 , _:node17cbdbj8dx17852 , _:node17cbdbj8dx17853 , _:node17cbdbj8dx17854 , _:node17cbdbj8dx17855 , _:node17cbdbj8dx17856 , _:node17cbdbj8dx17857 , _:node17cbdbj8dx17858 , _:node17cbdbj8dx17850 , _:node17cbdbj8dx17860 , _:node17cbdbj8dx17862 , _:node17cbdbj8dx17867 , _:node17cbdbj8dx17859 , _:node17cbdbj8dx17889 , _:node17cbdbj8dx17873 , _:node17cbdbj8dx17874 , _:node17cbdbj8dx17877 , _:node17cbdbj8dx17880 , _:node17cbdbj8dx17883 , _:node17cbdbj8dx17886 , _:node17cbdbj8dx17872 , _:node17cbdbj8dx17869 , _:node17cbdbj8dx17893 , _:node17cbdbj8dx17894 , _:node17cbdbj8dx17895 , _:node17cbdbj8dx17896 , _:node17cbdbj8dx17897 , _:node17cbdbj8dx17864 , _:node17cbdbj8dx17898 , _:node17cbdbj8dx17899 , _:node17cbdbj8dx17900 , _:node17cbdbj8dx17892 , _:node17cbdbj8dx21336 , _:node17cbdbj8dx21335 , _:node17cbdbj8dx21338 , _:node17cbdbj8dx21339 , _:node17cbdbj8dx21340 , _:node17cbdbj8dx21341 , _:node17cbdbj8dx21342 , _:node17cbdbj8dx21337 , atxa-core:docRoot , _:node17cbdbj8dx17851 , _:node17cbdbj8dx17852 , _:node17cbdbj8dx17853 , _:node17cbdbj8dx17854 , _:node17cbdbj8dx17855 , _:node17cbdbj8dx17856 , _:node17cbdbj8dx17857 , _:node17cbdbj8dx17858 , _:node17cbdbj8dx17850 , _:node17cbdbj8dx17860 , _:node17cbdbj8dx17862 , _:node17cbdbj8dx17867 , _:node17cbdbj8dx17859 , _:node17cbdbj8dx17889 , _:node17cbdbj8dx17873 , _:node17cbdbj8dx17874 , _:node17cbdbj8dx17877 , _:node17cbdbj8dx17880 , _:node17cbdbj8dx17883 , _:node17cbdbj8dx17886 , _:node17cbdbj8dx17872 , _:node17cbdbj8dx17869 , _:node17cbdbj8dx17893 , _:node17cbdbj8dx17894 , _:node17cbdbj8dx17895 , _:node17cbdbj8dx17896 , _:node17cbdbj8dx17897 , _:node17cbdbj8dx17864 , _:node17cbdbj8dx17898 , _:node17cbdbj8dx17899 , _:node17cbdbj8dx17900 , _:node17cbdbj8dx17892 , _:node17cbdbj8dx21336 , _:node17cbdbj8dx21335 , _:node17cbdbj8dx21338 , _:node17cbdbj8dx21339 , _:node17cbdbj8dx21340 , _:node17cbdbj8dx21341 , _:node17cbdbj8dx21342 , _:node17cbdbj8dx21337 , atxa-core:docRoot , _:node17cbdbj8dx1843 , _:node17cbdbj8dx1631 , _:node17cbdbj8dx7113 , _:node17cbdbj8dx1647 , _:node17cbdbj8dx7112 , _:node17cbdbj8dx2108 , _:node17cbdbj8dx2110 , _:node17cbdbj8dx2112 , _:node17cbdbj8dx2111 , _:node17cbdbj8dx2113 , _:node17cbdbj8dx2109 , _:node17cbdbj8dx1843 , _:node17cbdbj8dx1631 , _:node17cbdbj8dx7113 , _:node17cbdbj8dx1647 , _:node17cbdbj8dx7112 , _:node17cbdbj8dx2108 , _:node17cbdbj8dx2110 , _:node17cbdbj8dx2112 , _:node17cbdbj8dx2111 , _:node17cbdbj8dx2113 , _:node17cbdbj8dx2109 .
+

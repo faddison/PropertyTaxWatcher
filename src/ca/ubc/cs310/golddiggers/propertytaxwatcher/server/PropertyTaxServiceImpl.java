@@ -103,7 +103,7 @@ public class PropertyTaxServiceImpl extends RemoteServiceServlet implements
 	{
 		UserService userService = UserServiceFactory.getUserService();
 		return userService.getCurrentUser();
-	}
+	}	
 
 	private PersistenceManager getPersistenceManager()
 	{
